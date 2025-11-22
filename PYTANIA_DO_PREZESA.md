@@ -172,22 +172,20 @@
 ## 📝 TEMPLATE NOTATEK (wypełnij podczas rozmowy)
 
 ```
-DATA ROZMOWY: ________________
-OSOBA: _______________________ (imię, stanowisko)
-CZAS TRWANIA: ________________
+Notatki z rozmowy z Kamilem Małochlebem lead produkcji
 
 === KLUCZOWE ODPOWIEDZI ===
 
 1. PROBLEM Z AWARIAMI:
-   - Typowy scenariusz: _________________________________
-   - Czas reakcji obecnie: _____________________________
-   - Kto decyduje: _____________________________________
-   - Narzędzia używane: ________________________________
+   - Typowy scenariusz: Maszyna wylatuje z produkcji bez możliwości kontynuacji produkcji
+   - Czas reakcji obecnie:  Powinien być natychmiastowy / planiści zajmują się planowaniem produkcji
+   - Kto decyduje: Może planiści
+   - Narzędzia używane: TOMAI ERP (firma jest autorem)
 
 2. PROCES PLANOWANIA:
-   - System: __________________________________________
-   - Częstotliwość zmian: ______________________________
-   - Integracja z maszynami: ___________________________
+   - System: Klienci codziennie sprawdzają czy maja zaplanowane procesy produkcyjne
+   - Częstotliwość zmian: zależy od priorytetów ale zwykle tyg/2tyg / miesięczne wyprzedzenie
+   - Integracja z maszynami: często stare maszyny bez integracji ( elplc zlicza całkowity użytek, czy pracowała czy nie,) komputer z aplikacja obok maszyny dla operatorów
 
 3. TOMAI:
    - Funkcje: _________________________________________
@@ -195,14 +193,14 @@ CZAS TRWANIA: ________________
    - API/integracja: ___________________________________
 
 4. KOSZT PRZESTOJU:
-   - Koszt/godzina: ____________________________________
-   - Częstotliwość awarii: ______________________________
+   - Koszt/godzina: Zależy od tego co maszyna produkuje, np wariatory do samochodów 1 = 120$ / 6sec
+   - Częstotliwość awarii: 
    - % strat produkcji: ________________________________
 
 5. POTRZEBY OPERATORÓW:
-   - Największy problem: _______________________________
-   - Czego brakuje: ____________________________________
-   - Preferowana automatyzacja: ________________________
+   - Największy problem: powinien wiedzieć jak powinien zareagować podczas awarii, instrukcje w systemie jak reagować, operatorzy chcą dużo informacji w czasie rzeczywistym
+   - Czego brakuje: 
+   - Preferowana automatyzacja: operatorzy zepsutych maszyn żeby wiedzieli co maja zrobić i gdzie przejść
 
 === DODATKOWE INSIGHTS ===
 ___________________________________________________________
@@ -220,6 +218,7 @@ ___________________________________________________________
 
 "______________________________________________________"
 - Prezes ELPLC
+
 ```
 
 ---
