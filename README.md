@@ -34,13 +34,25 @@
 **Problem (prawdziwy scenariusz ELPLC):**
 > *"Fabryka produkuje części samochodowe. Wszystko idzie zgodnie z planem. Nagle kluczowa maszyna się psuje. Cały harmonogram się rozsypuje. Zlecenia się opóźniają, klienci czekają, koszty rosną."*
 
-**Nasze rozwiązanie (zgodne z wyzwaniem):**
+**Nasze rozwiązanie - "różne sposoby" (zgodnie z wyzwaniem):**
+
+**Podejście #1: System reagujący w czasie rzeczywistym (MVP - teraz)**
 - System **nie panikuje**, tylko **automatycznie reaguje** w czasie rzeczywistym
+- **"Uwzględnia dostępność maszyn, czasy operacji, kolejność technologii"**:
+  - Śledzi dostępność: `working`/`error`/`maintenance`
+  - Rejestruje czasy: MTTR (Mean Time To Repair) dla każdej naprawy
+  - Rozumie kolejność: zlecenie #1234 na CNC-01 wymaga 120 min, priorytet 1
 - **Wizualizacja #1: Mapa zasobów** - Dashboard kafelkowy: 🟢 = działa, 🔴 = awaria, 🟡 = naprawa
-- **Wizualizacja #2: Wykres Gantta** (roadmap Day 2) - Timeline zleceń pokazujący wpływ awarii na harmonogram
-- Przy awarii: system oznacza maszynę jako niedostępną i **automatycznie przelicza** dostępność
-- Operator/Kierownik widzi od razu: które zlecenia są zagrożone, która maszyna może przejąć zadanie
-- Technik dostaje zgłoszenie → "Rozpocznij" → "Zakończ" → maszyna wraca do puli produkcyjnej
+- **Wizualizacja #2: Wykres Gantta** (Day 2) - Timeline zleceń pokazujący wpływ awarii
+- Przy awarii: system przelicza dostępność i pokazuje zagrożone zlecenia
+
+**Podejście #2: AI generująca plan od zera (Q1 2026 - roadmap)**
+- **"Aplikacja, która generuje plan od zera"** wykorzystując:
+  - **Algorytmy genetyczne** - optymalizacja przy ograniczeniach
+  - **Reinforcement Learning** - uczenie optymalnych decyzji
+- **"Przewidywanie awarii na podstawie danych archiwalnych"** (Q3 2026):
+  - Machine Learning: LSTM/XGBoost analizuje historię MTTR/MTBF
+  - Predykcja: "CNC-01 prawdopodobnie ulegnie awarii za 48h"
 
 **Dla jury:** 
 - ✅ **"Pokazane w praktyce"**: Działające MVP z mapą zasobów (każdy operator wie co robić)
@@ -52,15 +64,15 @@
 
 ## 🎯 Dlaczego wygramy wyzwanie ELPLC
 
-| Kryterium ELPLC (cytat z wideo)                               | SmartFlow (co dostarczamy)                                                                                                                  |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| *"System, który w takiej sytuacji nie panikuje"*              | Mechanizm **One-Click Alert** + automatyczna zmiana statusu maszyny w czasie rzeczywistym (3 sekundy).                                      |
-| *"Automatycznie przelicza plan i proponuje nowy harmonogram"* | MVP: manualny re-routing. **Roadmapa Day 2**: auto-rescheduling z heurystykami. **Q1 2026**: algorytmy genetyczne i reinforcement learning. |
-| *"Uwzględnia dostępność maszyn, czasy operacji, kolejność"*   | Status `working`/`error`/`maintenance` wpływa na widok dostępności. System śledzi MTTR dla każdej maszyny i pokazuje kolejkę zleceń.        |
-| *"Pokazać w prosty sposób operatorowi"*                       | **Wizualizacja**: Dashboard kafelkowy (mapa zasobów) + timeline zleceń. Bez Exceli, bez tabel - kolor mówi wszystko: 🟢🟡🔴                    |
-| *"Przewidywać awarię na podstawie danych archiwalnych"*       | Logujemy każdą awarię z timestampami → baza do predykcji (ML w roadmapie Q3 2026).                                                          |
-| *"To jest prawdziwe wyzwanie przemysłu 4.0"*                  | Responsive web app (Flask + HTML/CSS/JS) działająca w czasie rzeczywistym, gotowa do integracji z PLC (OPC-UA w roadmapie Q2 2026).         |
-| *"Najlepszy plan to taki, który potrafi się zmieniać"*        | System **reaguje na zmiany**, nie trzyma się sztywnego planu. Każda awaria → natychmiastowa aktualizacja dashboardu i dostępności zasobów.  |
+| Kryterium ELPLC (cytat z wideo)                                         | SmartFlow (co dostarczamy)                                                                                                                                                                                                                                |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *"System, który w takiej sytuacji nie panikuje"*                        | Mechanizm **One-Click Alert** + automatyczna zmiana statusu maszyny w czasie rzeczywistym (3 sekundy).                                                                                                                                                    |
+| *"Automatycznie przelicza plan i proponuje nowy harmonogram"*           | MVP: manualny re-routing. **Roadmapa Day 2**: auto-rescheduling z heurystykami. **Q1 2026**: algorytmy genetyczne i reinforcement learning.                                                                                                               |
+| *"Uwzględnia dostępność maszyn, czasy operacji, kolejność technologii"* | Status maszyn (`working`/`error`/`maintenance`) + **czasy operacji** (estimated_duration w tabeli orders) + **kolejność** (priority: 1=krytyczne, 2=wysokie, 3=normalne). System wie ile czasu zajmuje każde zlecenie i w jakiej kolejności je wykonywać. |
+| *"Pokazać w prosty sposób operatorowi"*                                 | **Wizualizacja**: Dashboard kafelkowy (mapa zasobów) + timeline zleceń. Bez Exceli, bez tabel - kolor mówi wszystko: 🟢🟡🔴                                                                                                                                  |
+| *"Przewidywać awarię na podstawie danych archiwalnych"*                 | Logujemy każdą awarię z timestampami → baza do predykcji (ML w roadmapie Q3 2026).                                                                                                                                                                        |
+| *"To jest prawdziwe wyzwanie przemysłu 4.0"*                            | Responsive web app (Flask + HTML/CSS/JS) działająca w czasie rzeczywistym, gotowa do integracji z PLC (OPC-UA w roadmapie Q2 2026).                                                                                                                       |
+| *"Najlepszy plan to taki, który potrafi się zmieniać"*                  | System **reaguje na zmiany**, nie trzyma się sztywnego planu. Każda awaria → natychmiastowa aktualizacja dashboardu i dostępności zasobów.                                                                                                                |
 
 ---
 
@@ -137,7 +149,7 @@ graph LR
         class OP,TECH,MGR ui;
 ```
 
-### Co jest w MVP (teraz) - "System reagujący na awarię w czasie rzeczywistym"
+### Co jest w MVP (teraz) - "System reagujący w czasie rzeczywistym" (Podejście #1)
 
 | Funkcja                             | Status | Opis (zgodnie z wyzwaniem ELPLC)                                     |
 | ----------------------------------- | ------ | -------------------------------------------------------------------- |
@@ -153,17 +165,17 @@ graph LR
 
 ### Co będzie później - "Algorytmy, AI, predykcja" (roadmap zgodna z wyzwaniem)
 
-| Funkcja                                     | Kiedy   | Technologia (z wideo ELPLC)                                                                                                                  |
-| ------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Auto-rescheduling (półautomatyczny)**     | Day 2   | **Mechanizm sugestii**: gdy awaria > 30min → system pokazuje: "Zlecenie #1234 może przejść na CNC-02 (dostępna za 15 min)"                   |
-| **Wykres Gantta / Timeline zleceń**         | Day 2   | **"Pokazać to w praktyce"** - interaktywny wykres z paskami zleceń, czerwone pola = opóźnienia przez awarie                                  |
-| **Panel Kierownika + KPI + Wykres Gantta**  | Day 2   | Widok 360°: OEE, MTTR, liczba awarii, **wykres Gantta pokazujący timeline wszystkich zleceń i wpływ awarii**                                 |
-| **AI: Algorytmy genetyczne**                | Q1 2026 | **"Aplikacja generująca plan od zera"** - optymalizacja harmonogramu przy ograniczeniach (dostępność, czasy operacji, kolejność technologii) |
-| **AI: Reinforcement Learning**              | Q1 2026 | Uczenie się optymalnych decyzji przy różnych scenariuszach awarii                                                                            |
-| **Predykcja awarii na danych archiwalnych** | Q3 2026 | Machine Learning: LSTM/XGBoost na historii MTTR/MTBF                                                                                         |
-| **Integracja z PLC (OPC-UA)**               | Q2 2026 | Automatyczne wykrywanie awarii bez zgłoszenia operatora                                                                                      |
-| **WebSocket real-time**                     | Day 2   | Zamiana auto-refresh (5s) na WebSocket - natychmiastowa aktualizacja bez opóźnień                                                            |
-| **Powiadomienia push**                      | Q1 2026 | Web Push API - technik dostaje alert na smartwatch/telefon                                                                                   |
+| Funkcja                                     | Kiedy   | Technologia (z wideo ELPLC)                                                                                                                                                                    |
+| ------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Auto-rescheduling (półautomatyczny)**     | Day 2   | **Mechanizm sugestii**: gdy awaria > 30min → system pokazuje: "Zlecenie #1234 może przejść na CNC-02 (dostępna za 15 min)"                                                                     |
+| **Wykres Gantta / Timeline zleceń**         | Day 2   | **"Pokazać to w praktyce"** - interaktywny wykres z paskami zleceń, czerwone pola = opóźnienia przez awarie                                                                                    |
+| **Panel Kierownika + KPI + Wykres Gantta**  | Day 2   | Widok 360°: OEE, MTTR, liczba awarii, **wykres Gantta pokazujący timeline wszystkich zleceń i wpływ awarii**                                                                                   |
+| **AI: Algorytmy genetyczne**                | Q1 2026 | **"Aplikacja generująca plan od zera"** - gdy awaria duża, system może stworzyć całkowicie nowy harmonogram od początku (uwzględnia dostępność, czasy, kolejność, ograniczenia technologiczne) |
+| **AI: Reinforcement Learning**              | Q1 2026 | Uczenie się optymalnych decyzji przy różnych scenariuszach awarii                                                                                                                              |
+| **Predykcja awarii na danych archiwalnych** | Q3 2026 | **"Przewidywanie awarii"** - ML analizuje pełną historię (MTTR, MTBF, typ awarii, warunki) i przewiduje: "CNC-01: ryzyko awarii 85% w ciągu 48h"                                               |
+| **Integracja z PLC (OPC-UA)**               | Q2 2026 | Automatyczne wykrywanie awarii bez zgłoszenia operatora                                                                                                                                        |
+| **WebSocket real-time**                     | Day 2   | Zamiana auto-refresh (5s) na WebSocket - natychmiastowa aktualizacja bez opóźnień                                                                                                              |
+| **Powiadomienia push**                      | Q1 2026 | Web Push API - technik dostaje alert na smartwatch/telefon                                                                                                                                     |
 
 ---
 
@@ -205,7 +217,8 @@ CREATE TABLE orders (
         assigned_machine_id INTEGER,                    -- NULL jeśli nie przypisane
         status TEXT CHECK(status IN ('pending','in_progress','completed','blocked')) DEFAULT 'pending',
         priority INTEGER DEFAULT 2,
-        estimated_duration INTEGER,                     -- w minutach
+        estimated_duration INTEGER,                     -- czas operacji w minutach (np. 120)
+        technology_sequence TEXT,                       -- kolejność technologii (np. "CNC→Heat→Finish")
         started_at TEXT,
         completed_at TEXT,
         FOREIGN KEY (assigned_machine_id) REFERENCES machines(id)
@@ -229,12 +242,12 @@ INSERT INTO machines (name, status, current_task, progress) VALUES
 ('Press-A', 'idle', NULL, 0),
 ('Press-B', 'maintenance', 'Przegląd okresowy', 0);
 
--- 4 zlecenia produkcyjne (roadmap Day 2)
-INSERT INTO orders (order_number, product_name, assigned_machine_id, status, priority, estimated_duration, started_at) VALUES
-('#1234', 'Felga-L', 1, 'in_progress', 1, 120, datetime('now', '-30 minutes')),
-('#1235', 'Felga-R', 2, 'in_progress', 1, 90, datetime('now', '-15 minutes')),
-('#1236', 'Osłona silnika', NULL, 'pending', 2, 60, NULL),
-('#1237', 'Wspornik', 4, 'blocked', 2, 45, NULL);  -- blocked bo Press-B w maintenance
+-- 4 zlecenia produkcyjne (roadmap Day 2) - uwzględniają "czasy operacji, kolejność technologii"
+INSERT INTO orders (order_number, product_name, assigned_machine_id, status, priority, estimated_duration, technology_sequence, started_at) VALUES
+('#1234', 'Felga-L', 1, 'in_progress', 1, 120, 'CNC→Obróbka→Kontrola', datetime('now', '-30 minutes')),
+('#1235', 'Felga-R', 2, 'in_progress', 1, 90, 'CNC→Obróbka→Kontrola', datetime('now', '-15 minutes')),
+('#1236', 'Osłona silnika', NULL, 'pending', 2, 60, 'Prasa→Zgrzewanie', NULL),
+('#1237', 'Wspornik', 4, 'blocked', 2, 45, 'Prasa→Malowanie', NULL);  -- blocked bo Press-B w maintenance
 
 -- 2 przykładowe incydenty
 INSERT INTO incidents (machine_id, description, status, priority, timestamp) VALUES
@@ -514,10 +527,11 @@ python app.py
 **Slajd 3: Demo na żywo**
 - (pokaż aplikację - klik AWARIA → czerwony kafelek → panel technika)
 
-**Slajd 4: Dlaczego wygra**
+**Slajd 4: Dlaczego wygra - "Prawdziwe wyzwanie przemysłu 4.0"**
+- **"Planowanie, które nie tylko działa, ale reaguje na zmiany"**
 - Działa na każdym urządzeniu (PC, tablet, telefon)
 - Zero szkoleń - kolory mówią wszystko
-- Działa w 48h od teraz
+- Gotowe MVP w 48h + roadmap AI
 
 **Slajd 5: Gotowe do wdrożenia + Team**
 - MVP działa - zrobione w 48h
