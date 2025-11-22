@@ -35,9 +35,10 @@
 >
 > [*pauza, kontakt wzrokowy*]
 >
-> **Co się dzieje?**  
+> "Co się dzieje?"  
 > 30 minut chaosu. Telefony do planisty. Ręczne przeliczanie w Excel.  
 > **Koszt**: 300 wariatorów nie wyprodukowanych = **$36,000 strat**.  
+> **To pół godziny. Pełna godzina przestoju = $72,000!**  
 > Operator nie wie gdzie przejść. Klient automotive czeka.
 >
 > [*pauza*]
@@ -115,11 +116,12 @@
 
 #### KROK 4: Nowy Harmonogram (30s)
 > "Operator Jan widzi propozycję. System przełożył wariatory na CNC-02, 6 zadań zoptymalizowanych.  
-> **Rezultat**: Zamiast straty $36,000 - tylko $2,400. To **$33,600 oszczędności**."
+> **Rezultat**: Zamiast straty $36,000 - tylko $2,400. To **$33,600 oszczędności na jednej awarii**."
 
 **[Prezenter wskazuje na ekran]**
 
-> "To **Game Changer** dla ELPLC. 93% redukcja kosztów awarii. Operator klika 'Zaakceptuj'."
+> "**Pamiętajcie**: Każda GODZINA przestoju w ELPLC = **$72,000 strat**.  
+> FailSafe skraca reakcję z 30 minut do 3 sekund. To **Game Changer**. Operator klika 'Zaakceptuj'."
 
 #### KROK 5: Wizualizacja Gantt (20s)
 > "System automatycznie aktualizuje Gantt chart. TOMAI monitorował awarię, FailSafe zareagował.  
@@ -153,6 +155,7 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 
 > "Co to oznacza dla ELPLC?
 >
+> **Kontekst**: Każda godzina przestoju = **$72,000 strat** (wariatory).  
 > **ROI**: $4 miliony oszczędności rocznie przy 10 awariach/miesiąc.  
 > **Szybkość**: 3 sekundy vs 30 minut - 99.9% przyspieszenie.  
 > **Synergia**: TOMAI monitoruje + FailSafe reorganizuje = Industry 4.0 w akcji.
@@ -223,9 +226,9 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 
 ### Mantra Zespołowa
 **Wszyscy razem:**
-> "My nie robimy prezentacji. My **rozwiązujemy problem za $4M rocznie**.
-> Mamy validację z ELPLC. Mamy liczby. Mamy rozwiązanie.
-> **Zero paniki. 3 sekundy. $33,600 oszczędności. FailSafe.** 💪"
+> "My nie robimy prezentacji. My **ratujemy $72,000 co godzinę**.
+> **$4M rocznie** oszczędności. Validacja z ELPLC. Realne liczby.
+> **Każda godzina = $72k. Nasza reakcja = 3 sekundy. FailSafe.** 💪"
 
 ### Ostatnie Przypomnienia
 1. **Spokój**: Oddychajcie głęboko. Jury jest po naszej stronie.
@@ -236,15 +239,16 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 
 ## 🎯 KLUCZOWE WARTOŚCI DO ZAPAMIĘTANIA
 
-| Wartość                | Liczba         | Kontekst / Impact              |
-| ---------------------- | -------------- | ------------------------------ |
-| **Czas reakcji**       | 3 sekundy      | 99.9% szybciej niż ręczne      |
-| **Oszczędność/awaria** | $33,600        | 93% redukcja kosztów           |
-| **ROI roczny**         | $4,032,000     | Przy 10 awariach/mies.         |
-| **Maszyny (demo)**     | 4 CNC          | Realistic z hal ELPLC 4200m²   |
-| **Zadania**            | 15             | Włącznie wariatory automotive  |
-| **Validacja**          | ✓ Potwierdzona | Rozmowa z lead produkcji ELPLC |
-| **Status**             | Prototyp MVP   | Gotowy do pilota na 1 linii    |
+| Wartość                | Liczba         | Kontekst / Impact                  |
+| ---------------------- | -------------- | ---------------------------------- |
+| **KOSZT PRZESTOJU/H**  | **$72,000**    | 600 wariatorów × $120 = KRYTYCZNE! |
+| **Czas reakcji**       | 3 sekundy      | 99.9% szybciej niż ręczne          |
+| **Oszczędność/awaria** | $33,600        | 93% redukcja (30 min przestoju)    |
+| **ROI roczny**         | $4,032,000     | Przy 10 awariach/mies.             |
+| **Maszyny (demo)**     | 4 CNC          | Realistic z hal ELPLC 4200m²       |
+| **Zadania**            | 15             | Włącznie wariatory automotive      |
+| **Validacja**          | ✓ Potwierdzona | Rozmowa z lead produkcji ELPLC     |
+| **Status**             | Prototyp MVP   | Gotowy do pilota na 1 linii        |
 
 ---
 
@@ -259,7 +263,8 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 ✓ Status CBR (Centrum Badawczo-Rozwojowe)
 ✓ Właściciel systemu TOMAI (monitoring)
 ✓ Klienci: automotive Tier 1, e-mobility, energia
-✓ Produkty: wariatory ($120/szt), baterie e-bike, amortyzatory
+✓ Produkty: wariatory ($120/szt, 600/h = $72k/h!)
+✓ KOSZT PRZESTOJU: $72,000 NA GODZINĘ ⚠️
 ✓ Validacja: rozmowa z Kamilem Małochlebem (lead produkcji)
 ```
 

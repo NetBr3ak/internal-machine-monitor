@@ -18,10 +18,11 @@
 • Planista ręcznie przelicza harmonogram
 • Operatorzy nie wiedzą gdzie przejść
 • Komunikacja: telefony, Excel, chaos
-• 300 wariatorów nie wyprodukowanych
+• 300 wariatorów nie wyprodukowanych w 30 min
 
-KOSZT: $36,000 (jedna awaria)
-       = 300 sztuk × $120
+KOSZT: $36,000 (pół godziny przestoju)
+       = 300 sztuk × $120/szt
+       (godzina = $72,000!)
 ```
 
 ### ✅ PO (FailSafe + TOMAI):
@@ -34,8 +35,9 @@ KOSZT: $36,000 (jedna awaria)
          ↓
 14:37:00 - Produkcja na CNC-02 rusza
 
-OSZCZĘDNOŚĆ: $33,600 (93% redukcja strat)
-            = ~280 wariatorów uratowanych
+OSZCZĘDNOŚĆ: $33,600 (93% redukcja)
+            vs. $36,000 bez FailSafe
+            (1h przestoju = $72,000!)
 ```
 
 ---
@@ -242,27 +244,32 @@ OSZCZĘDNOŚĆ: $33,600 (93% redukcja strat)
 ### ROI dla ELPLC - Konkretne Liczby:
 
 ```
-📊 CASE STUDY: Wariatory do samochodów
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 CASE STUDY: Wariatory do samochodów (ELPLC)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Wartość: $120/sztuka
 • Cykl produkcji: 6 sekund
-• Produkcja/godzina: 600 sztuk = $72,000
+• Produkcja/godzina: 600 sztuk
 
-❌ BEZ FailSafe (30 min przestoju):
+⚠️  KOSZT PRZESTOJU: $72,000 NA GODZINĘ!
+
+❌ BEZ FailSafe (typowa awaria: 30 min przestoju):
    • Stracone sztuki: 300
-   • Koszt: $36,000 na awarię
+   • Koszt straty: $36,000
 
-✅ Z FailSafe (2 min przestoju):
-   • Stracone sztuki: 20
-   • Koszt: $2,400 na awarię
+✅ Z FailSafe (reakcja: 2 min przestoju):
+   • Stracone sztuki: 20  
+   • Koszt straty: $2,400
    • OSZCZĘDNOŚĆ: $33,600 (93%!)
 
-📈 PRZY 10 AWARIACH/MIESIĄC:
+📈 PRZY 10 AWARIACH/MIESIĄC (avg 30 min każda):
+   • Bez FailSafe: $360,000 strat
+   • Z FailSafe: $24,000 strat
    • Oszczędność miesięczna: $336,000
    • Oszczędność roczna: $4,032,000
 
+⚠️  PAMIĘTAJ: Każda GODZINA przestoju = $72,000 strat!
 💰 ROI: System zwraca się w < 1 miesiąc
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KOMPLEMENTARNOŚĆ:
 ✓ TOMAI monitoruje i wykrywa awarie

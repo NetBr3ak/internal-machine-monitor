@@ -13,10 +13,11 @@
 - **4 maszyny CNC**: CNC-01, CNC-02, CNC-03, CNC-04  
 - **Nagle**: Awaria CNC-01 (pęknięte narzędzie, naprawa: 2h)
 - **4 zadania** było na CNC-01, w tym **wariatory $120/szt**
+- **KOSZT PRZESTOJU**: $72,000 NA GODZINĘ!
 
-**Pytanie**: Jak szybko przeorganizować bez straty $36,000?
+**Pytanie**: Jak szybko przeorganizować bez straty dziesiątków tysięcy dolarów?
 
-**Odpowiedź**: Algorytm optymalizacyjny FailSafe.
+**Odpowiedź**: Algorytm optymalizacyjny FailSafe - reakcja w 3 sekundy.
 
 ---
 
@@ -124,8 +125,11 @@
 Lokalizacja: Hala A, ELPLC Tarnów (4200 m²)
 Wpływ: 4 zadania zablokowane
   • Wariatory (priorytet!) - $120/szt, cykl 6 sek
+  • Produkcja: 600 szt/godzina = $72,000/h
   • Felga-L, Wspornik, Korpus
-Potencjalna strata: $36,000 (300 wariatorów)
+  
+⚠️  KAŻDA MINUTA PRZESTOJU = $1,200 STRAT!
+Potencjalna strata (30 min): $36,000
 ```
 
 **KROK 2: FailSafe AI Scheduler aktivowany (3 sekundy)**
@@ -152,8 +156,9 @@ Potencjalna strata: $36,000 (300 wariatorów)
 ✅ Nowy harmonogram - ZAAKCEPTOWANY
 • Czas reakcji: 3 sekundy (vs 30 min ręczne)
 • Zadania przełożone: 6 (w tym wariatory na CNC-02)
-• Strata minimalna: 20 wariatorów ($2,400)
+• Strata minimalna: 2 min = 20 wariatorów ($2,400)
 • OSZCZĘDZONO: $33,600 (93% redukcja!)
+• KONTEKST: Godzina przestoju = $72,000 strat!
 
 14:37:00 - Operator Jan: Start produkcji na CNC-02 ✓
 14:37:15 - Powiadomienia wysłane do całego zespołu ✓
@@ -166,16 +171,17 @@ Potencjalna strata: $36,000 (300 wariatorów)
 
 ### Porównanie: Człowiek vs AI
 
-| Aspekt                  | Planista ELPLC (ręcznie)  | FailSafe AI           |
-| ----------------------- | ------------------------- | --------------------- |
-| **Czas reakcji**        | 30-60 minut               | 3 sekundy (99.9% ↓)   |
-| **Zadania analizowane** | ~5-7 (mental load)        | 15+ wszystkie naraz   |
-| **Warianty testowane**  | 2-3 (Excel)               | 500+ (automated)      |
-| **Błędy ludzkie**       | Możliwe                   | Wyeliminowane         |
-| **Wizualizacja**        | Excel/papier              | Gantt real-time       |
-| **Koszt awarii**        | $36,000                   | $2,400 (93% ↓)        |
-| **Stres operatora**     | Wysoki ("gdzie przejść?") | Niski (ma instrukcje) |
-| **Skalowalność**        | 1 hala max                | Całe 4200m² + więcej  |
+| Aspekt                   | Planista ELPLC (ręcznie)  | FailSafe AI           |
+| ------------------------ | ------------------------- | --------------------- |
+| **Czas reakcji**         | 30-60 minut               | 3 sekundy (99.9% ↓)   |
+| **Zadania analizowane**  | ~5-7 (mental load)        | 15+ wszystkie naraz   |
+| **Warianty testowane**   | 2-3 (Excel)               | 500+ (automated)      |
+| **Błędy ludzkie**        | Możliwe                   | Wyeliminowane         |
+| **Wizualizacja**         | Excel/papier              | Gantt real-time       |
+| **Koszt przestoju/h**    | **$72,000**               | **$72,000** (zawsze!) |
+| **Koszt awarii (30min)** | $36,000                   | $2,400 (93% ↓)        |
+| **Stres operatora**      | Wysoki ("gdzie przejść?") | Niski (ma instrukcje) |
+| **Skalowalność**         | 1 hala max                | Całe 4200m² + więcej  |
 
 ---
 
@@ -215,9 +221,10 @@ Awaria → System
 
 | Metryka                | Wartość         | Kontekst ELPLC                 |
 | ---------------------- | --------------- | ------------------------------ |
+| **Koszt przestoju**    | **$72,000/h**   | 600 wariatorów × $120          |
 | **Czas reakcji**       | 3 sekundy       | 99.9% szybciej niż ręczne      |
-| **Oszczędność/awaria** | $33,600         | Wariatory case study           |
-| **ROI**                | < 1 miesiąc     | Przy 10 awariach/mies.         |
+| **Oszczędność/awaria** | $33,600         | Przy 30 min przestoju          |
+| **ROI roczny**         | $4,032,000      | Przy 10 awariach/mies.         |
 | **Skala demo**         | 15 zadań, 4 CNC | Realistic z hal 4200m²         |
 | **Integracja**         | TOMAI API       | Komplementarność z ELPLC       |
 | **Typ**                | Prototyp MVP    | Gotowy do pilota na 1 linii    |
@@ -269,9 +276,11 @@ FailSafe = GPS dla fabryki ELPLC
 ## 🎯 PODSUMOWANIE DLA JURY
 
 **3 rzeczy do zapamiętania:**
-1. **93% redukcja kosztów awarii** ($36k → $2.4k)
-2. **TOMAI + FailSafe** = kompletny ekosystem (nie konkurencja!)
-3. **Realistic case** = validacja z ELPLC + ROI < 1 miesiąc
+1. **$72,000 koszt GODZINY przestoju** w ELPLC (wariatory)
+2. **93% redukcja kosztów awarii** ($36k → $2.4k przez FailSafe)
+3. **TOMAI + FailSafe** = kompletny ekosystem Industry 4.0
+
+**ROI**: $4M oszczędności rocznie, zwrot < 1 miesiąc
 
 **To prototyp MVP** gotowy do pilota na 1 linii ELPLC.
 
