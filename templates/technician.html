@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Panel Technika</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<h1>Panel Technika</h1>
+	<h2>Awarie</h2>
+	<div class="filters">
+		<button onclick="filterFailures('new')">Nowe</button>
+		<button onclick="filterFailures('in_progress')">W trakcie</button>
+		<button onclick="filterFailures('fixed')">Zakończone</button>
+		<button onclick="filterFailures('all')">Wszystkie</button>
+	</div>
+	<div class="failures">
+		{% for failure in failures %}
+		<div class="failure {{ failure.status }}">
+			<h3>Maszyna: {{ failure.machine_name }}</h3>
+			<p>Opis: {{ failure.description }}</p>
+			<p>Typ: {{ failure.type }}</p>
+			<p>Zgłoszono: {{ failure.reported_at }}</p>
+			<p>Status: {{ failure.status }}</p>
+			<p>Priorytet: {{ failure.priority }}</p>
+			{% if failure.status == 'new' %}
+			<a href="/start_repair/{{ failure.id }}">Rozpocznij naprawę</a>
+			{% elif failure.status == 'in_progress' %}
+			<a href="/fix_failure/{{ failure.id }}">Naprawione</a>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

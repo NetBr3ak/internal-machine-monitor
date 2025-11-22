@@ -1,0 +1,84 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+.machines {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.machine {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 10px;
+	width: 200px;
+}
+
+.machine.running {
+	background-color: lightgreen;
+}
+
+.machine.setup {
+	background-color: yellow;
+}
+
+.machine.failure {
+	background-color: red;
+}
+
+.failures {
+	margin-top: 20px;
+}
+
+.failure {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.failure.new {
+	border-left: 5px solid blue;
+}
+
+.failure.in_progress {
+	border-left: 5px solid orange;
+}
+
+.failure.fixed {
+	border-left: 5px solid green;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 400px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
