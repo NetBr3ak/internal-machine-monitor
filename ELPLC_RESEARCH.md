@@ -162,13 +162,13 @@ System do zarządzania i monitorowania produkcji w czasie rzeczywistym.
 
 ## 💼 CO TO OZNACZA DLA SMARTFLOW?
 
-### Dlaczego SmartFlow pasuje do ELPLC?
+### Dlaczego FailSafe pasuje do ELPLC?
 
 **1. Problem, który ELPLC zna:**
 > ELPLC buduje linie produkcyjne, które **muszą działać non-stop**. Każda awaria = przestój = straty finansowe dla klientów.
 
-**2. TOMAI vs SmartFlow - komplementarne rozwiązania:**
-| TOMAI (ELPLC)                              | SmartFlow (Nasz projekt)                       |
+**2. TOMAI vs FailSafe - komplementarne rozwiązania:**
+| TOMAI (ELPLC)                              | FailSafe (Nasz projekt)                        |
 | ------------------------------------------ | ---------------------------------------------- |
 | Monitoruje produkcję w czasie rzeczywistym | **Reaguje na awarie w 3 sekundy**              |
 | Identyfikuje mikro-przestoje               | **Przeorganizowuje harmonogram automatycznie** |
@@ -185,8 +185,8 @@ System do zarządzania i monitorowania produkcji w czasie rzeczywistym.
 **4. Case study dla ELPLC:**
 > Fabryka ELPLC ma 4200 m² hal z 9 CNC, 9 obrabiarkami, 9 tokarkami.  
 > **Scenariusz:** CNC-01 się psuje podczas produkcji komponentów dla linii montażowej.  
-> **Bez SmartFlow:** Planista 30-60 minut przelicza harmonogram w Excel → opóźnienia w dostawach do klienta.  
-> **Ze SmartFlow:** System w 3 sekundy przełoży zadania na inne maszyny → zero opóźnień, klient zadowolony.
+> **Bez FailSafe:** Planista 30-60 minut przelicza harmonogram w Excel → opóźnienia w dostawach do klienta.  
+> **Z FailSafe:** System w 3 sekundy przełoży zadania na inne maszyny → zero opóźnień, klient zadowolony.
 
 ---
 
@@ -197,8 +197,8 @@ System do zarządzania i monitorowania produkcji w czasie rzeczywistym.
 **1. "Znamy waszą branżę"**
 > ELPLC automatyzuje produkcję dla Tier 1 automotive. Wiemy, że każda minuta przestoju to tysiące złotych strat.
 
-**2. "SmartFlow to brakujący element TOMAI"**
-> TOMAI świetnie monitoruje. SmartFlow **reaguje i reorganizuje**. Razem = kompletny ekosystem smart factory.
+**2. "FailSafe to brakujący element TOMAI"**
+> TOMAI świetnie monitoruje. FailSafe **reaguje i reorganizuje**. Razem = kompletny ekosystem smart factory.
 
 **3. "Testowaliśmy na waszych danych"**
 > Prototyp używa scenariusza: 4 maszyny (jak w hali ELPLC), 15 zadań, awaria CNC. Realistic case study.
@@ -207,21 +207,21 @@ System do zarządzania i monitorowania produkcji w czasie rzeczywistym.
 > ELPLC ma status CBR, pionierzy Industry 4.0 w Polsce. SmartFlow to naturalny next step: **predictive → reactive → adaptive scheduling**.
 
 **5. "ROI jest mierzalny"**
-> Jedna awaria CNC = 30-60 min przestoju. SmartFlow skraca to do 3 sekund. Dla ELPLC z dziesiątkami maszyn = ogromne oszczędności.
+> Jedna awaria CNC = 30-60 min przestoju. FailSafe skraca to do 3 sekund. Dla ELPLC z dziesiątkami maszyn = ogromne oszczędności.
 
 ---
 
 ## 📚 SŁOWNICZEK POJĘĆ ELPLC
 
-| Termin ELPLC        | Co to znaczy                    | Jak to odnosi się do SmartFlow                           |
-| ------------------- | ------------------------------- | -------------------------------------------------------- |
-| **TOMAI**           | System monitoringu produkcji    | SmartFlow = TOMAI + automatyczna reakcja                 |
-| **Mikro-przestoje** | Krótkie zatrzymania maszyn      | SmartFlow minimalizuje ich wpływ przez przełożenie zadań |
-| **Traceability**    | Śledzenie parametrów i zdarzeń  | SmartFlow loguje każdą zmianę harmonogramu               |
-| **OEE**             | Overall Equipment Effectiveness | SmartFlow poprawia OEE przez redukcję przestojów         |
-| **EOL Testing**     | End-of-Line testy jakości       | Harmonogram SmartFlow uwzględnia czasy testów            |
-| **Industry 4.0**    | Smart factory, IoT, AI          | SmartFlow = AI scheduler w ekosystemie 4.0               |
-| **CBR**             | Centrum Badawczo-Rozwojowe      | SmartFlow to innowacja, która pasuje do R&D ELPLC        |
+| Termin ELPLC        | Co to znaczy                    | Jak to odnosi się do FailSafe                           |
+| ------------------- | ------------------------------- | ------------------------------------------------------- |
+| **TOMAI**           | System monitoringu produkcji    | FailSafe = TOMAI + automatyczna reakcja                 |
+| **Mikro-przestoje** | Krótkie zatrzymania maszyn      | FailSafe minimalizuje ich wpływ przez przełożenie zadań |
+| **Traceability**    | Śledzenie parametrów i zdarzeń  | FailSafe loguje każdą zmianę harmonogramu               |
+| **OEE**             | Overall Equipment Effectiveness | FailSafe poprawia OEE przez redukcję przestojów         |
+| **EOL Testing**     | End-of-Line testy jakości       | Harmonogram FailSafe uwzględnia czasy testów            |
+| **Industry 4.0**    | Smart factory, IoT, AI          | FailSafe = AI scheduler w ekosystemie 4.0               |
+| **CBR**             | Centrum Badawczo-Rozwojowe      | FailSafe to innowacja, która pasuje do R&D ELPLC        |
 
 ---
 
@@ -264,11 +264,11 @@ System do zarządzania i monitorowania produkcji w czasie rzeczywistym.
 - Jeśli pytają o technologie → "Python + algorytm optymalizacyjny, jak w Industry 4.0"
 
 ### Komunikat finalny:
-> **"ELPLC buduje fabryki przyszłości. SmartFlow sprawia, że te fabryki nie panikują podczas awarii."**
+> **"ELPLC buduje fabryki przyszłości. FailSafe sprawia, że te fabryki nie panikują podczas awarii."**
 
 ---
 
 <div align="center">
-    <h2>🏭 SmartFlow + ELPLC = Smart Factory bez Chaosu</h2>
+    <h2>🏭 FailSafe + ELPLC = Smart Factory bez Chaosu</h2>
     <p><i>Research prepared for Hackathon dla Małopolski 2025</i></p>
 </div>

@@ -29,15 +29,15 @@
 
 **[Prezenter stoi pewnie, nawiązuje kontakt wzrokowy]**
 
-> "Dzień dobry! Jestem [IMIĘ], reprezentuję zespół SmartFlow.
+> "Dzień dobry! Jestem [IMIĘ], reprezentuję zespół FailSafe.
 >
-> **Pytanie do jury**: Co się dzieje, gdy w fabryce awaria zatrzymuje produkcję na 2 godziny?
+> **Pytanie do jury**: Co się dzieje, gdy w fabryce automotive, takiej jak ELPLC, awaria CNC zatrzymuje produkcję na 2 godziny?
 >
 > [*pauza 2 sekundy*]
 >
-> **Chaos**. Opóźnienia. Straty finansowe. Zestresowani ludzie.
+> **Chaos**. Telefony do planisty. Excel nie nadąża. Opóźnienia w dostawach. Straty finansowe. Zestresowani ludzie.
 >
-> **My to zmieniamy**. System SmartFlow reaguje na awarię w **3 sekundy**."
+> **My to zmieniamy**. System FailSafe reaguje na awarię w **3 sekundy** i automatycznie reorganizuje cały harmonogram produkcji."
 
 ---
 
@@ -50,7 +50,7 @@
 
 ```
 ┌─────────────────────────────────────────┐
-│  🏭 SmartFlow Production Dashboard      │
+│  🏭 FailSafe Production Dashboard       │
 ├─────────────────────────────────────────┤
 │  📊 Aktywne Maszyny: 4/4                │
 │  ⚡ Status: WSZYSTKO OK                 │
@@ -76,7 +76,7 @@
 ```
 
 #### KROK 3: Reakcja Systemu (25s)
-> "System SmartFlow **natychmiast** analizuje zadania produkcyjne. Algorytm oblicza nowy harmonogram w **3 sekundy**."
+> "System FailSafe **natychmiast** analizuje zadania produkcyjne. Algorytm oblicza nowy harmonogram w **3 sekundach**."
 
 **[Animacja loading → Success]**
 
@@ -144,7 +144,7 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 > **Automatyzacja**: System sam optymalizuje harmonogram.
 > **Spokój**: Operatorzy wiedzą co robić.
 >
-> **SmartFlow to prototyp systemu, który nie panikuje nawet gdy fabryka się zatrzyma.**
+> **FailSafe to prototyp systemu, który nie panikuje nawet gdy fabryka się zatrzyma.**
 >
 > Dziękujemy za uwagę. Czekamy na pytania."
 
@@ -163,14 +163,17 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 ### 3️⃣ Jak długo trwałaby implementacja u ELPLC?
 > "To prototyp koncepcyjny. Pełny system produkcyjny wymagałby 3-6 miesięcy rozwoju i testów z prawdziwymi danymi fabrycznymi."
 
-### 4️⃣ Co jeśli operator nie zgodzi się z algorytmem?
-> "System daje propozycję, nie rozkaz. Operator może edytować harmonogram ręcznie. AI uczy się z tych decyzji (reinforcement learning)."
+### 4️⃣ Jak FailSafe współpracuje z TOMAI?
+> "TOMAI to świetny system monitoringu od ELPLC - zbiera dane w czasie rzeczywistym. FailSafe dodaje do tego automatyczną reakcję i reorganizację. TOMAI mówi 'mamy problem', FailSafe odpowiada 'mam rozwiązanie'. To komplementarne narzędzia."
 
-### 5️⃣ Jak system radzi sobie z wieloma awariami jednocześnie?
-> "W prototypie zakładamy jednoczesną analizę wielu awarii. Dla produkcji wymagałoby to testów wydajnościowych z realnymi danymi."
+### 5️⃣ Co jeśli operator nie zgodzi się z algorytmem?
+> "System daje propozycję, nie rozkaz. Operator ma pełną kontrolę i może edytować harmonogram ręcznie. AI uczy się z tych decyzji, aby kolejne sugestie były jeszcze lepsze."
 
-### 6️⃣ Czy to działa tylko dla ELPLC?
-> "Nie. System jest modularny. Każda fabryka produkcyjna z maszynami CNC/przemysłowymi może go użyć. To rozwiązanie **skalowalne**."
+### 6️⃣ Jak system radzi sobie z wieloma awariami jednocześnie?
+> "Prototyp analizuje awarie sekwencyjnie, ale architektura jest przygotowana na równoległe przetwarzanie. Dla pełnej produkcji wymagałoby to testów wydajnościowych z realnymi danymi ELPLC."
+
+### 7️⃣ Czy to działa tylko dla ELPLC?
+> "Nie. System jest modularny. Każda fabryka produkcyjna z maszynami CNC/przemysłowymi może go użyć - od małych zakładów po duże fabryki automotive Tier 1. To rozwiązanie **skalowalne**."
 
 ---
 
@@ -200,7 +203,7 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 **Wszyscy razem:**
 > "My nie robimy prezentacji. My **rozwiązujemy problem ELPLC**.
 > System jest prosty. Historia jest mocna. My jesteśmy gotowi.
-> **3 sekundy. Zero paniki. SmartFlow.** 💪"
+> **3 sekundy. Zero paniki. FailSafe.** 💪"
 
 ### Ostatnie Przypomnienia
 1. **Spokój**: Oddychajcie głęboko. Jury jest po naszej stronie.
@@ -233,6 +236,6 @@ Task-003  ░░░░░░░░████████ (bez zmian)
 
 ---
 
-**POWODZENIA, ZESPÓŁ SMARTFLOW!** 🚀
+**POWODZENIA, ZESPÓŁ FAILSAFE!** 🚀
 
 *Remember: You're not selling a product. You're solving ELPLC's biggest problem.*

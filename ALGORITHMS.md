@@ -1,4 +1,4 @@
-# 🤖 JAK DZIAŁA INTELIGENCJA SmartFlow
+# 🤖 JAK DZIAŁA INTELIGENCJA FailSafe
 
 > **Dla:** Osób nietechnicznych, jury hackathonu, prezentacji
 > **Focus:** Zrozumienie koncepcji bez zagłębiania się w kod
@@ -112,24 +112,28 @@ Wyobraź sobie:
 
 ## ⚙️ JAK TO WYGLĄDA W PRAKTYCE?
 
-### SCENARIUSZ DEMO
+### SCENARIUSZ DEMO (oparty na rzeczywistych halach ELPLC)
 
 **KROK 1: Awaria**
 ```
 Operator zgłasza: CNC-01 nie działa (14:35)
+Lokalizacja: Hala produkcyjna ELPLC Tarnów (4200 m²)
+Wpływ: 4 zadania zablokowane
 ```
 
-**KROK 2: AI Scheduler aktivowany**
+**KROK 2: FailSafe AI Scheduler aktivowany**
 ```
 [Algorytm Optymalizacyjny]
 → Analizuje 15 zadań w harmonogramie
+→ Uwzględnia dostępność 3 pozostałych maszyn CNC
 → Testuje różne warianty przełożenia
-→ Wybiera najlepszy wariant
+→ Wybiera najlepszy wariant (min. opóźnienie)
 
 [Walidator]
 → Sprawdza czy harmonogram jest wykonalny
-→ Wykrywa konflikty
-→ Naprawia konflikty (przesunięcia)
+→ Uwzględnia czasy przezbrojenia maszyn
+→ Wykrywa konflikty terminów
+→ Naprawia konflikty (inteligentne przesunięcia)
 ```
 
 **KROK 3: Wynik**
@@ -225,7 +229,7 @@ Awaria → System
 3. **Wizualizacja** = Gantt chart pokazujący zmiany w czasie rzeczywistym
 
 **Analogia finalna:**
-> SmartFlow to jak GPS dla fabryki. Gdy jest korek (awaria), natychmiast pokazuje alternatywną trasę (nowy harmonogram).
+> FailSafe to jak GPS dla fabryki. Gdy jest korek (awaria), natychmiast pokazuje alternatywną trasę (nowy harmonogram).
 
 ---
 

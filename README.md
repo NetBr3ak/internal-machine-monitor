@@ -1,7 +1,7 @@
-# 🏭 SmartFlow — System Reagujący na Awarie
+# 🏭 FailSafe — System Reagujący na Awarie
 
 > **Hackathon dla Małopolski 2025** · ELPLC S.A.  
-> _"System, który nie panikuje - algorytmy przeliczają plan w 3 sekundy"_
+> _"System, który nie panikuje - algorytmy przeliczają plan w 3 sekundy"
 
 ---
 
@@ -21,7 +21,7 @@
 KOSZT: 15 000 zł (jedna awaria)
 ```
 
-### ✅ PO (SmartFlow):
+### ✅ PO (FailSafe):
 ```
 14:35 - CNC-01 się psuje
        ↓
@@ -39,7 +39,7 @@ OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
 ### EKRAN 1: Dashboard Operatora
 ```
 ╔══════════════════════════════════════════════════════════╗
-║  SmartFlow - Dashboard Operatora          14:35         ║
+║  FailSafe - Dashboard Operatora           14:35         ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
 ║  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     ║
@@ -81,7 +81,7 @@ OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
 ### EKRAN 3: System reaguje (0.5 sekundy później)
 ```
 ╔══════════════════════════════════════════════════════════╗
-║  SmartFlow - Dashboard Operatora          14:35:01      ║
+║  FailSafe - Dashboard Operatora           14:35:01      ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
 ║  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     ║
@@ -214,23 +214,26 @@ OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
 
 ## 💰 POTENCJAŁ BIZNESOWY
 
-### Przykładowe oszczędności (szacunki):
+### Przykładowe oszczędności dla ELPLC:
 
 ```
 PROBLEM:
 • Awaria CNC → 30-60 min przestoju
-• Ręczne przeliczanie planu
-• Opóźnienia w produkcji
+• Ręczne przeliczanie planu w Excel
+• Chaos komunikacyjny (telefony, e-maile)
+• Opóźnienia w dostawach do klientów automotive
 
-ROZWIĄZANIE:
+ROZWIĄZANIE FailSafe:
 • System reaguje w 3 sekundy
-• Automatyczne przełożenie zadań
-• Minimalizacja przestojów
+• Automatyczne przełożenie zadań na dostępne maszyny
+• Minimalizacja przestojów do kilku minut
+• Powiadomienia w czasie rzeczywistym dla całego zespołu
 
 POTENCJAŁ:
-• Szybsza reakcja na awarie
-• Lepsze wykorzystanie maszyn
-• Mniej stresu dla operatorów
+• Redukcja czasu reakcji o 90% (z 30-60 min → 3 sek)
+• Lepsze wykorzystanie 100+ maszyn i robotów ELPLC
+• Wsparcie dla 1000+ projektów rocznie
+• Komplementarność z systemem TOMAI
 ```
 
 ---
@@ -315,16 +318,19 @@ smartflow/
 ## ❓ Q&A - Częste pytania
 
 **Q: Czy to działa naprawdę?**  
-A: To prototyp koncepcyjny na hackathon. Pokazujemy jak by działał system.
+A: To prototyp koncepcyjny na hackathon pokazujący jak działałby system w halach produkcyjnych ELPLC.
 
 **Q: Ile czasu zajęłoby wdrożenie?**  
-A: Pełny system produkcyjny to 3-6 miesięcy rozwoju.
+A: Pełny system produkcyjny to 3-6 miesięcy rozwoju, zaczynając od pilotażu na wybranej linii produkcyjnej.
+
+**Q: Jak FailSafe współpracuje z TOMAI?**  
+A: To rozwiązania komplementarne - TOMAI monitoruje i analizuje, FailSafe automatycznie reorganizuje harmonogram. Razem tworzą kompletny ekosystem Industry 4.0.
 
 **Q: Jakie są następne kroki?**  
-A: Rozwój działającego prototypu, testy z prawdziwymi danymi ELPLC.
+A: Rozwój działającego prototypu, integracja z systemami ELPLC (TOMAI, ERP), testy z prawdziwymi danymi produkcyjnymi z hal w Tarnowie.
 
 **Q: Dlaczego to lepsze niż Excel?**  
-A: Automatyzacja, szybkość reakcji, wizualizacja w czasie rzeczywistym.
+A: Automatyzacja (3 sekundy vs 30-60 minut), eliminacja błędów ludzkich, wizualizacja w czasie rzeczywistym, powiadomienia dla całego zespołu.
 
 ---
 
@@ -339,7 +345,7 @@ A: Automatyzacja, szybkość reakcji, wizualizacja w czasie rzeczywistym.
 ---
 
 <div align="center">
-    <h2>🏭 SmartFlow</h2>
+    <h2>🏭 FailSafe</h2>
     <p><b>"Plan, który nie panikuje. Plan, który się zmienia."</b></p>
-    <p><i>Team SmartFlow · Hackathon dla Małopolski 2025</i></p>
+    <p><i>Team FailSafe · Hackathon dla Małopolski 2025</i></p>
 </div>
