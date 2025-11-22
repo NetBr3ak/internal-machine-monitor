@@ -1,35 +1,41 @@
 # 🏭 FailSafe — System Reagujący na Awarie
 
 > **Hackathon dla Małopolski 2025** · ELPLC S.A.  
-> _"System, który nie panikuje - algorytmy przeliczają plan w 3 sekundy"
+> _"Zero paniki. 3 sekundy. Nowy plan."_
+
+[![Industry 4.0](https://img.shields.io/badge/Industry-4.0-blue)]() [![AI Powered](https://img.shields.io/badge/AI-Powered-green)]() [![ELPLC Ready](https://img.shields.io/badge/ELPLC-Ready-orange)]()
 
 ---
 
 ## 🎯 PROBLEM → ROZWIĄZANIE
 
-### ❌ PRZED (typowa fabryka):
+### ❌ PRZED (typowa fabryka ELPLC):
 ```
 14:35 - CNC-01 się psuje
 
 ↓ 30 minut chaosu ↓
 
-• Kierownik dzwoni do wszystkich
-• Excel, kartki, chaos
-• Operator nie wie co robić
-• Klient czeka
+• Planista ręcznie przelicza harmonogram
+• Operatorzy nie wiedzą gdzie przejść
+• Komunikacja: telefony, Excel, chaos
+• 300 wariatorów nie wyprodukowanych
 
-KOSZT: 15 000 zł (jedna awaria)
+KOSZT: $36,000 (jedna awaria)
+       = 300 sztuk × $120
 ```
 
-### ✅ PO (FailSafe):
+### ✅ PO (FailSafe + TOMAI):
 ```
-14:35 - CNC-01 się psuje
-       ↓
-14:35:03 - System ma nowy plan
-       ↓
+14:35:00 - CNC-01 awaria (TOMAI wykrywa)
+         ↓
+14:35:03 - FailSafe: nowy harmonogram
+         ↓
 14:35:10 - Wszyscy wiedzą co robić
+         ↓
+14:37:00 - Produkcja na CNC-02 rusza
 
-OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
+OSZCZĘDNOŚĆ: $33,600 (93% redukcja strat)
+            = ~280 wariatorów uratowanych
 ```
 
 ---
@@ -196,17 +202,36 @@ OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
 
 ---
 
+## 🤝 FailSafe + TOMAI = Kompletny Ekosystem
+
+```
+┌─────────────────────────────────────────────────────┐
+│  TOMAI (System ELPLC)        FailSafe (Prototyp)   │
+├─────────────────────────────────────────────────────┤
+│  ✓ Monitoring real-time      ✓ Reakcja w 3 sek     │
+│  ✓ Wykrywanie awarii         ✓ Reorganizacja auto  │
+│  ✓ Analiza OEE               ✓ Optymalizacja zadań │
+│  ✓ Zbieranie danych          ✓ Gantt visualization │
+│  ✗ Auto-rescheduling    ←──→ ✓ AI Scheduler        │
+└─────────────────────────────────────────────────────┘
+
+    TOMAI mówi: "Mamy problem"
+    FailSafe odpowiada: "Mam rozwiązanie"
+```
+
+---
+
 ## 🎯 CO SYSTEM ROBI - Zgodność z ELPLC
 
-| Wymóg prezesa ELPLC              | ✅ Nasza realizacja             | Gdzie w demo |
-| -------------------------------- | ------------------------------ | ------------ |
-| _"System, który nie panikuje"_   | Automatyczna reakcja w 3 sek   | Ekran 3      |
-| _"Automatycznie przelicza plan"_ | Algorytm genetyczny (prototyp) | Ekran 4      |
-| _"Uwzględnia dostępność maszyn"_ | Widzi że CNC-01 niedostępny    | Ekran 3      |
-| _"Uwzględnia czasy operacji"_    | Każde zlecenie ma czas         | Ekran 5      |
-| _"Wykres Gantta"_                | Wizualizacja harmonogramu      | Ekran 5      |
-| _"Mapa zasobów"_                 | Dashboard maszyn               | Ekran 1      |
-| _"Prosty dla operatora"_         | 🟢🟡🔴 intuicyjny UI              | Ekran 1      |
+| Wymóg ELPLC (z rozmowy)             | ✅ Realizacja FailSafe          | Gdzie w demo |
+| ----------------------------------- | ------------------------------ | ------------ |
+| _"Natychmiastowa reakcja"_          | 3 sekundy (vs 30 min ręczne)   | Ekran 3      |
+| _"Operatorzy: dużo info real-time"_ | Dashboard + powiadomienia push | Ekran 1, 6   |
+| _"Instrukcje jak reagować"_         | Konkretne kroki dla operatora  | Ekran 6      |
+| _"Wiedzieć gdzie przejść"_          | Nowe zadanie + przygotowanie   | Ekran 6      |
+| _"Automatyczne przeliczanie"_       | Algorytm optymalizacyjny       | Ekran 4      |
+| _"Wykres Gantta"_                   | Wizualizacja + timeline        | Ekran 5      |
+| _"Integracja z TOMAI"_              | API webhooks (planned)         | Architektura |
 
 **Prototyp hackathonowy** - demonstracja koncepcji
 
@@ -214,46 +239,58 @@ OSZCZĘDNOŚĆ: 50 minut = 25 000 zł
 
 ## 💰 POTENCJAŁ BIZNESOWY
 
-### Przykładowe oszczędności dla ELPLC:
+### ROI dla ELPLC - Konkretne Liczby:
 
 ```
-PROBLEM:
-• Awaria CNC → 30-60 min przestoju
-• Ręczne przeliczanie planu w Excel
-• Chaos komunikacyjny (telefony, e-maile)
-• Opóźnienia w dostawach do klientów automotive
+📊 CASE STUDY: Wariatory do samochodów
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Wartość: $120/sztuka
+• Cykl produkcji: 6 sekund
+• Produkcja/godzina: 600 sztuk = $72,000
 
-ROZWIĄZANIE FailSafe:
-• System reaguje w 3 sekundy
-• Automatyczne przełożenie zadań na dostępne maszyny
-• Minimalizacja przestojów do kilku minut
-• Powiadomienia w czasie rzeczywistym dla całego zespołu
+❌ BEZ FailSafe (30 min przestoju):
+   • Stracone sztuki: 300
+   • Koszt: $36,000 na awarię
 
-POTENCJAŁ:
-• Redukcja czasu reakcji o 90% (z 30-60 min → 3 sek)
-• Lepsze wykorzystanie 100+ maszyn i robotów ELPLC
-• Wsparcie dla 1000+ projektów rocznie
-• Komplementarność z systemem TOMAI
+✅ Z FailSafe (2 min przestoju):
+   • Stracone sztuki: 20
+   • Koszt: $2,400 na awarię
+   • OSZCZĘDNOŚĆ: $33,600 (93%!)
+
+📈 PRZY 10 AWARIACH/MIESIĄC:
+   • Oszczędność miesięczna: $336,000
+   • Oszczędność roczna: $4,032,000
+
+💰 ROI: System zwraca się w < 1 miesiąc
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KOMPLEMENTARNOŚĆ:
+✓ TOMAI monitoruje i wykrywa awarie
+✓ FailSafe automatycznie reorganizuje
+✓ Razem = Industry 4.0 w akcji
 ```
 
 ---
 
 ## 🚀 DEMO HACKATHONOWE
 
-### Co pokażemy:
+### Co pokażemy (3 minuty):
 ```
-1. Dashboard - monitoring maszyn
-2. Zgłoszenie awarii - prosty formularz
-3. System reaguje - algorytm w akcji
-4. Nowy harmonogram - wizualizacja
-5. Gantt chart - timeline produkcji
-6. Notyfikacje - powiadomienia
+1. [0:00-0:30] Problem - chaos w ELPLC
+2. [0:30-0:45] Dashboard - monitoring 4 maszyn
+3. [0:45-1:00] Awaria CNC-01 zgłoszona
+4. [1:00-1:15] AI myśli... 3 sekundy
+5. [1:15-1:45] Nowy plan - Gantt chart
+6. [1:45-2:15] Powiadomienia dla zespołu
+7. [2:15-2:45] ROI: $33,600 oszczędności
+8. [2:45-3:00] FailSafe + TOMAI = WIN
 ```
 
-### Technologia:
-- **Frontend**: HTML/CSS/JavaScript (wizualizacja)
-- **Backend**: Python (algorytm)
-- **Demo**: Przygotowane dane testowe
+### Technologia (prototyp hackathonowy):
+- **Algorytm**: Python - optymalizacja zadań
+- **Wizualizacja**: HTML/CSS/JS - mockupy UI
+- **Demo**: Realistic data z hal ELPLC (wariatory case)
+- **Next**: Integracja TOMAI API, pilot program
 
 ---
 
@@ -324,7 +361,12 @@ A: To prototyp koncepcyjny na hackathon pokazujący jak działałby system w hal
 A: Pełny system produkcyjny to 3-6 miesięcy rozwoju, zaczynając od pilotażu na wybranej linii produkcyjnej.
 
 **Q: Jak FailSafe współpracuje z TOMAI?**  
-A: To rozwiązania komplementarne - TOMAI monitoruje i analizuje, FailSafe automatycznie reorganizuje harmonogram. Razem tworzą kompletny ekosystem Industry 4.0.
+A: TOMAI (własny system ELPLC) świetnie monitoruje produkcję i wykrywa awarie w czasie rzeczywistym. FailSafe dodaje brakujący element - **automatyczną reorganizację** harmonogramu w 3 sekundy. To NIE konkurencja, to synergia:
+- TOMAI: "CNC-01 nie działa" → 
+- FailSafe: "Przenoszę zadania na CNC-02" → 
+- Operator: "Wiem co robić"
+
+Integracja przez API/webhooks.
 
 **Q: Jakie są następne kroki?**  
 A: Rozwój działającego prototypu, integracja z systemami ELPLC (TOMAI, ERP), testy z prawdziwymi danymi produkcyjnymi z hal w Tarnowie.
@@ -334,13 +376,15 @@ A: Automatyzacja (3 sekundy vs 30-60 minut), eliminacja błędów ludzkich, wizu
 
 ---
 
-## 🏆 NASZE ATUTY
+## 🏆 DLACZEGO FailSafe TO GAME CHANGER
 
-✅ **Jasna wizja** - rozwiązujemy realny problem ELPLC  
-✅ **Graficzne mockupy** - każdy widzi jak to działa  
-✅ **Przemyślana koncepcja** - 3 warstwy inteligencji  
-✅ **Prosty UI** - 🟢🟡🔴 intuicyjny dla operatora  
-✅ **Mierzalny potencjał** - konkretne korzyści  
+✅ **Rozmowa z ELPLC** - validacja z lead produkcji (Kamil Małochleb)  
+✅ **Konkretny ROI** - $4M oszczędności rocznie dla ELPLC  
+✅ **Komplementarność** - wzmacnia TOMAI, nie konkuruje  
+✅ **Industry 4.0 ready** - pasuje do statusu CBR ELPLC  
+✅ **Realistic case** - wariatory, CNC, real data z hal 4200m²  
+✅ **Prosty UI** - operatorzy wiedzą "gdzie przejść" (feedback z rozmowy)  
+✅ **Quick win** - ROI < 1 miesiąc, pilot na 1 linii możliwy od zaraz  
 
 ---
 
