@@ -14,7 +14,7 @@
 3. ✅ Nagrywaj rozmowę (za zgodą) lub rób notatki
 
 ### Podczas rozmowy:
-- **Przedstaw się:** "Dzień dobry, jestem [IMIĘ] z zespołu SmartFlow, uczestników Hackathonu dla Małopolski"
+- **Przedstaw się:** "Dzień dobry, jestem [IMIĘ] z zespołu FailSafe, uczestników Hackathonu dla Małopolski"
 - **Kontekst:** "Pracujemy nad systemem reagowania na awarie produkcyjne w czasie rzeczywistym"
 - **Prośba:** "Czy mogę zadać kilka pytań o procesy w ELPLC, żeby lepiej dopasować nasze rozwiązanie?"
 
@@ -160,7 +160,7 @@
 ### 🔟 Feedback na nasz pomysł
 
 **Pytanie:**
-> "Krótko o SmartFlow: system reaguje na awarię w 3 sekundy i automatycznie przelicza harmonogram. Brzmi to dla Pana jako realne rozwiązanie problemu?"
+> "Krótko o FailSafe: system reaguje na awarię w 3 sekundy i automatycznie przelicza harmonogram. Brzmi to dla Pana jako realne rozwiązanie problemu?"
 
 **Po co pytamy:**
 - Uzyskać **wczesny feedback**
@@ -227,7 +227,7 @@ ___________________________________________________________
 ## 🎤 PRZYKŁADOWY DIALOG (roleplay)
 
 ### Otwarcie:
-**Ty:** "Dzień dobry, Panie Prezesie! Jestem [IMIĘ] z zespołu SmartFlow. Uczestniczymy w Hackathonie dla Małopolski i pracujemy nad systemem, który automatycznie reaguje na awarie produkcyjne. Czy mógłbym zadać kilka pytań o procesy w ELPLC?"
+**Ty:** "Dzień dobry, Panie Prezesie! Jestem [IMIĘ] z zespołu FailSafe. Uczestniczymy w Hackathonie dla Małopolski i pracujemy nad systemem, który automatycznie reaguje na awarie produkcyjne. Czy mógłbym zadać kilka pytań o procesy w ELPLC?"
 
 **Prezes:** "Dzień dobry! Oczywiście, słucham."
 
@@ -313,7 +313,7 @@ Prezes może też zapytać Cię o projekt. Przygotuj się na:
 → "Pełny system produkcyjny wymaga 3-6 miesięcy rozwoju i testów z prawdziwymi danymi. Możemy zacząć od pilota na jednej linii."
 
 **"Czy to konkurencja dla TOMAI?"**
-→ "Nie, to komplementarne rozwiązanie! TOMAI świetnie monitoruje, SmartFlow automatycznie reorganizuje. Razem tworzą kompletny ekosystem smart factory."
+→ "Nie, to komplementarne rozwiązanie! TOMAI świetnie monitoruje, FailSafe automatycznie reorganizuje. Razem tworzą kompletny ekosystem smart factory."
 
 **"A co z integracją?"**
 → "System zaprojektowany modularnie - może działać standalone lub integrować się z TOMAI/ERP przez REST API."
@@ -340,5 +340,5 @@ Prezes może też zapytać Cię o projekt. Przygotuj się na:
 <div align="center">
     <h2>📞 Powodzenia z rozmową!</h2>
     <p><b>"Każda minuta z prezesem to złoto dla projektu"</b></p>
-    <p><i>Przygotowane dla zespołu SmartFlow · Hackathon 2025</i></p>
+    <p><i>Przygotowane dla zespołu FailSafe · Hackathon 2025</i></p>
 </div>
