@@ -1,7 +1,7 @@
-# 🏭 FailSafe - Symulator Hali Produkcyjnej ELPLC
+# 🏭 ForgeGrid - Symulator Hali Produkcyjnej ELPLC
 
-> **Realistyczne demo systemu planowania produkcji**  
-> Hackathon dla Małopolski 2025
+> **System monitoringu i planowania produkcji w czasie rzeczywistym**  
+> Projekt FailSafe • Hackathon dla Małopolski 2025
 
 [![Demo Ready](https://img.shields.io/badge/demo-ready-brightgreen)]()
 [![Tech](https://img.shields.io/badge/tech-React%20%2B%20TypeScript-blue)]()
@@ -9,15 +9,55 @@
 
 ---
 
-## 🎯 Projekt
+## 🎬 Landing Page - Co Robi Ten System?
 
-**Interaktywny symulator hali produkcyjnej ELPLC** - frontendowe demo systemu FailSafe pokazujące:
+**ForgeGrid** to symulator produkcji z modułem analitycznym, który pokazuje:
 
-✅ **Ciągły napływ zleceń** produkcyjnych (wariatory, baterie e-bike, amortyzatory)  
-✅ **Inteligentny przydział zadań** - heurystyka minimalizacji makespan  
-✅ **Realistyczne parametry** z hal ELPLC ($72k/h koszt przestoju)  
-✅ **UI jak system MES** - zrozumiały dla planera produkcji  
-✅ **Metryki real-time** - obciążenie, ETA, throughput, wykorzystanie  
+| Funkcja                     | Wartości                     | Opis                                                           |
+| --------------------------- | ---------------------------- | -------------------------------------------------------------- |
+| 🏭 **Production Monitoring** | 4 maszyny, 12 typów zadań    | Śledzenie CNC, Assembly, Test, Packaging w czasie rzeczywistym |
+| 📊 **Hall Load**             | 0-100%                       | Średnie obciążenie całej hali produkcyjnej                     |
+| ⚡ **Throughput**            | zadania/godzinę              | Przepustowość systemu (np. 12 zadań/hr)                        |
+| ✓ **Task Status**           | Completed / Active / Waiting | Liczba zadań w każdym statusie                                 |
+| ⏱️ **ETA**                   | minuty                       | Szacowany czas zakończenia wszystkich zadań                    |
+| 🎯 **Machine Utilization**   | 0-100% per maszyna           | Jak efektywnie wykorzystywana jest każda maszyna               |
+| 📝 **Event Log**             | 8 typów zdarzeń              | task_created, completed, breakdown, repair, alerts             |
+| 📈 **Analytics Charts**      | 3 wykresy                    | Hall Load Trend, Task Throughput, Utilization Distribution     |
+| 🚨 **Alert Routing**         | 4 grupy odbiorców            | Technicians, Supervisors, Managers, Quality Control            |
+| 📥 **CSV Export**            | Pełna historia               | Eksport wszystkich zdarzeń do analizy                          |
+
+### Kluczowe Liczby (Validowane z ELPLC):
+- **$72,000/h** - koszt przestoju linii wariatorów
+- **600 szt/h** - produkcja wariatorów (6 sek/cykl, $120/szt)
+- **93% redukcja strat** - FailSafe (2 min) vs tradycyjna naprawa (30 min)
+- **$4M rocznie** - potencjalne oszczędności przy 10 awariach/miesiąc
+
+---
+
+## 🎯 Co Robi Ten System?
+
+**ForgeGrid** to zaawansowany symulator hali produkcyjnej z modułem analitycznym, który:
+
+### 📊 Monitoruje Produkcję
+✅ **Śledzenie 4 maszyn** w czasie rzeczywistym (CNC, Assembly, Test, Packaging)  
+✅ **Ciągły napływ zleceń** - automatyczna generacja nowych zadań co 5-15 sekund  
+✅ **Inteligentny przydział** - heurystyka minimalizacji makespan, nie losowość  
+✅ **Symulacja awarii** - breakdown/repair z automatyczną dystrybucją zadań  
+✅ **Priorytety zadań** - Critical (🔴) / Rush (🟡) / Normal (🟢)
+
+### 📈 Zbiera Metryki
+✅ **Hall Load** - obciążenie hali (0-100%)  
+✅ **Throughput** - przepustowość (zadania/godzinę)  
+✅ **ETA** - szacowany czas zakończenia wszystkich zadań  
+✅ **Machine Utilization** - wykorzystanie każdej maszyny (%)  
+✅ **Event Logging** - zapis wszystkich zdarzeń z timestampami  
+✅ **Task Status** - completed / in progress / waiting
+
+### 🎨 Prezentuje Dane
+✅ **Production View** - dashboard z 4 maszynami + globalną pulą zadań  
+✅ **Analytics View** - wykresy, raporty, logi zdarzeń, eksport CSV  
+✅ **Real-time Updates** - aktualizacja co 0.5 minuty symulacyjnej  
+✅ **UI w stylu MES** - brutalist design, czytelny dla operatorów  
 
 ---
 
@@ -111,23 +151,62 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 
 ## 📊 Interfejs Użytkownika
 
-### Trzy strefy ekranu:
+### Dwa Widoki:
+
+#### 🏭 Production View (Główny Dashboard)
 
 **1. Górny pasek** - Globalne wskaźniki:
-- Obciążenie hali (%)
-- ETA zakończenia
-- Zadania: ukończone / w realizacji / oczekujące
-- Throughput (zadania/h)
+- **Hall Load** - aktualne obciążenie hali (0-100%)
+- **ETA** - szacowany czas zakończenia wszystkich zadań
+- **Completed** - liczba ukończonych zadań
+- **In Progress** - zadania w realizacji
+- **Waiting** - zadania czekające na przydział
+- **Throughput** - zadania/godzinę (wyliczane dynamicznie)
 
-**2. Lewy panel** - Pula zleceń:
-- Oczekujące na przydział
-- Kolory według priorytetu (🔴🟡🟢)
-- Szacowany czas + preferowane maszyny
+**2. Lewy panel** - Task Pool (Pula Zleceń):
+- Wszystkie zadania czekające na przydział
+- Kolory według priorytetu: Critical (🔴) / Rush (🟡) / Normal (🟢)
+- Dla każdego zadania: nazwa, czas trwania, preferowane maszyny
+- Automatyczne znikanie po przydzieleniu do maszyny
 
 **3. Cztery kolumny** - Maszyny:
-- Aktualne zadanie z paskiem postępu
-- Kolejka zadań
-- Metryki: ETA, wykorzystanie, ukończone
+- **Nagłówek**: nazwa maszyny, typ, prędkość (0.8x fast / 1.0x normal / 1.2x slow)
+- **Current Task**: aktualne zadanie z paskiem postępu (0-100%)
+- **Queue**: kolejka zadań (do 5 widocznych, reszta collapsed)
+- **Breakdown Button** (⚠️): symulacja awarii z redistrybucją zadań
+- **Metryki**: ETA kolejki, Utilization (%), Completed tasks
+
+#### 📈 Analytics View (Moduł Raportowania)
+
+**1. KPI Cards** (5 wskaźników):
+- **Throughput** - zadania/hr
+- **Completed** - suma ukończonych
+- **In Progress** - aktywne zadania
+- **Waiting** - w kolejce
+- **Events Logged** - suma zdarzeń
+
+**2. Wykresy** (3 interaktywne, time range: 5m/15m/30m/1h):
+- **Hall Load Trend** (Area Chart) - obciążenie hali w czasie
+- **Task Throughput** (Multi-Line) - completed/active/waiting tasks
+- **Machine Utilization** (Bar Chart) - wykorzystanie każdej maszyny (%)
+
+**3. Event Distribution** (Alert Panel):
+- Liczba zdarzeń wg typu:
+  - task_created, task_completed, task_started
+  - machine_breakdown, machine_repaired
+  - alert_sent, rebalance_triggered
+
+**4. Notification Recipients** (Routing Alertów):
+- **Technicians** (🔧) - ile alertów otrzymało
+- **Supervisors** (👔) - ile notyfikacji
+- **Managers** (💼) - raportowanie
+- **Quality Control** (🔬) - alerty jakościowe
+
+**5. System Event Log** (Tabela):
+- 50 ostatnich zdarzeń (reversed chronological)
+- Kolumny: Timestamp, Sim Time, Type, Severity, Message, Context
+- Severity levels: Info / Warning / Critical
+- **Eksport CSV** - pełna historia zdarzeń do pliku
 
 ---
 

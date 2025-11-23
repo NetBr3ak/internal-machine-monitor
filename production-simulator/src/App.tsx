@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { LayoutGroup } from 'framer-motion';
 import { useSimulationStore } from './store';
 import { GlobalMetricsPanel } from './components/GlobalMetricsPanel';
 import { TaskPoolPanel } from './components/TaskPoolPanel';
 import { MachineColumn } from './components/MachineColumn';
 import { SimulationControls } from './components/SimulationControls';
+import { Analytics } from './pages/Analytics';
 import { SIMULATION_CONFIG } from './config';
 
 function App() {
+  const [activeView, setActiveView] = useState<'production' | 'analytics'>('production');
   const {
     isRunning,
     simulationTime,
@@ -73,12 +75,39 @@ function App() {
     startSimulation();
   };
 
+  // Show analytics view
+  if (activeView === 'analytics') {
+    return <Analytics onBack={() => setActiveView('production')} />;
+  }
+
   return (
     <LayoutGroup>
       <div className="flex flex-col h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans selection:bg-cyan-500/30 relative">
         {/* Global Cyberpunk Background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0)_0%,rgba(2,6,23,0.8)_100%)] pointer-events-none" />
+
+        {/* View Toggle */}
+        <div className="absolute top-4 right-4 z-20 flex gap-2">
+          <button
+            onClick={() => setActiveView('production')}
+            className={`px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all ${activeView === 'production'
+                ? 'bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm'
+              }`}
+          >
+            🏭 Production
+          </button>
+          <button
+            onClick={() => setActiveView('analytics')}
+            className={`px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all ${activeView === 'analytics'
+                ? 'bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm'
+              }`}
+          >
+            📊 Analytics
+          </button>
+        </div>
 
         {/* Top Bar - Global Metrics */}
         <header className="flex-none p-4 pb-2 z-10">

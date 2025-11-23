@@ -6,7 +6,7 @@ export type TaskStatus = 'waiting' | 'assigned' | 'in_progress' | 'done';
 
 export type Priority = 'normal' | 'rush' | 'critical';
 
-export type MachineStatus = 'idle' | 'processing' | 'maintenance';
+export type MachineStatus = 'idle' | 'processing' | 'maintenance' | 'breakdown';
 
 // Machine definition
 export interface Machine {
@@ -61,6 +61,8 @@ export interface SimulationState {
 	machines: Machine[];
 	completedTasks: TaskInstance[];
 	totalTasksGenerated: number;
+	eventLog: SystemEvent[];
+	analyticsHistory: AnalyticsSnapshot[];
 }
 
 // Metrics
@@ -82,4 +84,44 @@ export interface MachineMetrics {
 	completedTasks: number;
 	queueLength: number;
 	queueTime: number; // total minutes in queue
+}
+
+// Event types for logging and analytics
+export type EventType =
+	| 'task_created'
+	| 'task_assigned'
+	| 'task_started'
+	| 'task_completed'
+	| 'machine_breakdown'
+	| 'machine_repaired'
+	| 'alert_sent'
+	| 'rebalance_triggered';
+
+export type AlertRecipient = 'technician' | 'supervisor' | 'manager' | 'quality_control';
+
+export interface SystemEvent {
+	id: string;
+	timestamp: number; // real time
+	simTime: number; // simulation time
+	type: EventType;
+	severity: 'info' | 'warning' | 'critical';
+	message: string;
+	data?: {
+		machineId?: string;
+		taskId?: string;
+		recipients?: AlertRecipient[];
+		[key: string]: any;
+	};
+}
+
+// Analytics data points for charts
+export interface AnalyticsSnapshot {
+	timestamp: number;
+	simTime: number;
+	hallLoad: number;
+	throughput: number;
+	waitingTasks: number;
+	activeTasks: number;
+	completedTasks: number;
+	machineUtilization: { [machineId: string]: number };
 }

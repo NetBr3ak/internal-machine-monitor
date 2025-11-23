@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Machine, MachineMetrics } from '../types';
+import { useSimulationStore } from '../store';
 
 interface MachineColumnProps {
 	machine: Machine;
@@ -29,11 +30,18 @@ const statusStyles = {
 		label: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
 	},
 	maintenance: {
-		border: 'border-red-500/30',
+		border: 'border-amber-500/30',
 		bg: 'bg-slate-800/60',
-		glow: 'shadow-[0_0_15px_-3px_rgba(239,68,68,0.15)]',
+		glow: 'shadow-[0_0_15px_-3px_rgba(245,158,11,0.15)]',
+		text: 'text-amber-400',
+		label: 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+	},
+	breakdown: {
+		border: 'border-red-500/30',
+		bg: 'bg-red-950/20',
+		glow: 'shadow-[0_0_15px_-3px_rgba(239,68,68,0.25)]',
 		text: 'text-red-400',
-		label: 'bg-red-500/20 text-red-300 border-red-500/30'
+		label: 'bg-red-500/30 text-red-200 border-red-500/50 animate-[pulse_0.8s_ease-in-out_infinite]'
 	},
 };
 
@@ -44,6 +52,7 @@ const priorityColors = {
 };
 
 export function MachineColumn({ machine, metrics }: MachineColumnProps) {
+	const toggleMachineBreakdown = useSimulationStore(state => state.toggleMachineBreakdown);
 	const icon = machineTypeIcons[machine.type];
 	const style = statusStyles[machine.status];
 
@@ -52,11 +61,12 @@ export function MachineColumn({ machine, metrics }: MachineColumnProps) {
 			className={`
 				relative flex flex-col h-full overflow-hidden transition-all duration-300 group
 				bg-slate-900/80 border border-slate-800 hover:border-slate-700
+				${machine.status === 'breakdown' ? 'border-red-500/60 bg-red-950/20 animate-[pulse_1.5s_ease-in-out_infinite]' : ''}
 			`}
 		>
 			{/* Cyberpunk Corners */}
-			<div className={`absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 transition-colors duration-300 ${machine.status === 'processing' ? 'border-emerald-500' : machine.status === 'maintenance' ? 'border-red-500' : 'border-slate-600'}`} />
-			<div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 transition-colors duration-300 ${machine.status === 'processing' ? 'border-emerald-500' : machine.status === 'maintenance' ? 'border-red-500' : 'border-slate-600'}`} />
+			<div className={`absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 transition-colors duration-300 ${machine.status === 'processing' ? 'border-emerald-500' : machine.status === 'breakdown' ? 'border-red-500' : 'border-slate-600'}`} />
+			<div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 transition-colors duration-300 ${machine.status === 'processing' ? 'border-emerald-500' : machine.status === 'breakdown' ? 'border-red-500' : 'border-slate-600'}`} />
 
 			{/* Header */}
 			<div className="p-4 border-b border-slate-800 bg-slate-950/50 relative overflow-hidden">
@@ -64,12 +74,16 @@ export function MachineColumn({ machine, metrics }: MachineColumnProps) {
 				{machine.status === 'processing' && (
 					<div className="absolute top-0 left-0 w-full h-[1px] bg-emerald-500/50 animate-pulse shadow-[0_0_10px_#10b981]" />
 				)}
+				{machine.status === 'breakdown' && (
+					<div className="absolute inset-0 bg-red-500/10 animate-[pulse_1s_ease-in-out_infinite] pointer-events-none" />
+				)}
 
 				<div className="flex items-center justify-between mb-4 relative z-10">
 					<div className="flex items-center gap-3">
 						<div className={`
 							w-12 h-12 flex items-center justify-center text-2xl bg-slate-900 border border-slate-700
-							${machine.status === 'processing' ? 'text-emerald-400 shadow-[0_0_15px_-5px_rgba(16,185,129,0.5)]' : 'text-slate-500'}
+							${machine.status === 'processing' ? 'text-emerald-400 shadow-[0_0_15px_-5px_rgba(16,185,129,0.5)]' : ''}
+							${machine.status === 'breakdown' ? 'text-red-500 border-red-900/50 shadow-[0_0_15px_-5px_rgba(239,68,68,0.5)]' : 'text-slate-500'}
 						`}>
 							{icon}
 						</div>
@@ -78,14 +92,28 @@ export function MachineColumn({ machine, metrics }: MachineColumnProps) {
 							<div className="text-xs text-cyan-500/70 font-mono mt-0.5 tracking-widest">{machine.id}</div>
 						</div>
 					</div>
-					<motion.div
-						key={machine.status}
-						initial={{ scale: 0.8, opacity: 0 }}
-						animate={{ scale: 1, opacity: 1 }}
-						className={`px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest border ${style.label}`}
-					>
-						{machine.status === 'processing' ? 'BUSY' : machine.status === 'idle' ? 'IDLE' : 'ERROR'}
-					</motion.div>
+					<div className="flex items-center gap-2">
+						<motion.div
+							key={machine.status}
+							initial={{ scale: 0.8, opacity: 0 }}
+							animate={{ scale: 1, opacity: 1 }}
+							className={`px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest border ${style.label}`}
+						>
+							{machine.status === 'processing' ? 'BUSY' : machine.status === 'idle' ? 'IDLE' : machine.status === 'breakdown' ? 'FAILURE' : 'MAINT'}
+						</motion.div>
+						<button
+							onClick={() => toggleMachineBreakdown(machine.id)}
+							className={`
+							w-8 h-8 flex items-center justify-center rounded border transition-all duration-200
+							${machine.status === 'breakdown'
+									? 'bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.8)] animate-[pulse_0.8s_ease-in-out_infinite]'
+									: 'bg-slate-800 border-slate-700 text-slate-600 hover:text-red-400 hover:border-red-500/50 hover:bg-slate-800/80'}
+							`}
+							title={machine.status === 'breakdown' ? "Repair Machine" : "Simulate Breakdown"}
+						>
+							<span className="text-sm">⚠️</span>
+						</button>
+					</div>
 				</div>
 
 				{/* Mini Stats */}

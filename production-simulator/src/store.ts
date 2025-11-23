@@ -1,6 +1,8 @@
 import { create } from 'zustand';
-import type { SimulationState, TaskInstance, Machine, GlobalMetrics, MachineMetrics } from './types';
+import type { SimulationState, TaskInstance, Machine, GlobalMetrics, MachineMetrics, SystemEvent, AnalyticsSnapshot, EventType, AlertRecipient } from './types';
 import { MACHINES, TASK_TYPES, SIMULATION_CONFIG, PRIORITY_WEIGHTS } from './config';
+
+let eventIdCounter = 0;
 
 // Helper functions
 function randomInRange(min: number, max: number): number {
@@ -50,17 +52,17 @@ function initializeMachines(): Machine[] {
 
 function generateTask(idCounter: number): TaskInstance {
 	// Weighted task type selection optimized for machine capacity
-	// CNC (5 machines): 80%
-	// Assembly/Welding (2 machines): 10%
+	// CNC (5 machines): 78%
+	// Assembly/Welding (2 machines): 12%
 	// Test/Quality/Packaging (1 machine + shared): 10%
 	const rand = Math.random();
 	let selectedTypes: typeof TASK_TYPES;
 
-	if (rand < 0.85) {
-		// 85% CNC (Increased from 80%)
+	if (rand < 0.78) {
+		// 78% CNC (Reduced to make room for Assembly)
 		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('CNC-'));
 	} else if (rand < 0.90) {
-		// 5% Assembly & Welding (Reduced from 10%)
+		// 12% Assembly & Welding (Increased from 5%)
 		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('ASM-') || t.taskTypeId.startsWith('WLD-'));
 	} else {
 		// 10% Test, Calibration, Packaging, Rework
@@ -141,10 +143,16 @@ function getMachineAvailableTime(machine: Machine): number {
 }
 
 function assignTask(task: TaskInstance, machines: Machine[]): string | null {
-	// 1. Filter candidates
-	const preferredMachines = machines.filter(m => task.preferredMachines.includes(m.id));
-	// Fallback to all machines only if absolutely necessary
-	const candidates = preferredMachines.length > 0 ? preferredMachines : machines;
+	// 1. Filter candidates - only operational machines
+	const operationalMachines = machines.filter(m => m.status !== 'breakdown' && m.status !== 'maintenance');
+	const preferredMachines = operationalMachines.filter(m => task.preferredMachines.includes(m.id));
+	// Fallback to all operational machines only if absolutely necessary
+	const candidates = preferredMachines.length > 0 ? preferredMachines : operationalMachines;
+
+	// If no operational machines available, task stays in pool
+	if (candidates.length === 0) {
+		return null;
+	}
 
 	// 2. Calculate context for load balancing
 	// We use time-based load, not count-based
@@ -218,7 +226,65 @@ function assignTask(task: TaskInstance, machines: Machine[]): string | null {
 	}
 
 	return bestMachine?.id || null;
-} interface SimulationStore extends SimulationState {
+}
+
+// Helper function to log events
+function logEvent(
+	get: () => any,
+	set: (state: any) => void,
+	type: EventType,
+	message: string,
+	severity: 'info' | 'warning' | 'critical',
+	data?: any
+) {
+	const state = get();
+	const event: SystemEvent = {
+		id: `EVT-${String(++eventIdCounter).padStart(6, '0')}`,
+		timestamp: Date.now(),
+		simTime: state.simulationTime,
+		type,
+		message,
+		severity,
+		data
+	};
+
+	set({ eventLog: [...state.eventLog, event] });
+}
+
+// Helper function to capture analytics snapshot
+function captureAnalytics(get: () => any, set: (state: any) => void) {
+	const state = get();
+	const snapshot: AnalyticsSnapshot = {
+		timestamp: Date.now(),
+		simTime: state.simulationTime,
+		hallLoad: 0,
+		throughput: 0,
+		waitingTasks: state.taskPool.length,
+		activeTasks: state.machines.filter((m: Machine) => m.status === 'processing').length,
+		completedTasks: state.completedTasks.length,
+		machineUtilization: {}
+	};
+
+	// Calculate hall load and machine utilization
+	let totalLoad = 0;
+	state.machines.forEach((m: Machine) => {
+		const util = state.simulationTime > 0 ? (m.totalProcessingTime / state.simulationTime) * 100 : 0;
+		snapshot.machineUtilization[m.id] = Math.round(util);
+		if (m.status === 'processing' || m.queue.length > 0) totalLoad++;
+	});
+
+	snapshot.hallLoad = Math.round((totalLoad / state.machines.length) * 100);
+
+	// Calculate throughput
+	const simHours = state.simulationTime / 60;
+	snapshot.throughput = simHours > 0 ? Math.round((state.completedTasks.length / simHours) * 10) / 10 : 0;
+
+	// Keep only last 200 snapshots
+	const history = [...state.analyticsHistory, snapshot].slice(-200);
+	set({ analyticsHistory: history });
+}
+
+interface SimulationStore extends SimulationState {
 	// Actions
 	startSimulation: () => void;
 	pauseSimulation: () => void;
@@ -227,6 +293,7 @@ function assignTask(task: TaskInstance, machines: Machine[]): string | null {
 	assignAllTasks: () => void;
 	addNewTask: () => void;
 	addTaskBatch: () => void;
+	toggleMachineBreakdown: (machineId: string) => void;
 
 	// Metrics
 	getGlobalMetrics: () => GlobalMetrics;
@@ -244,6 +311,8 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 	machines: initializeMachines(),
 	completedTasks: [],
 	totalTasksGenerated: 0,
+	eventLog: [],
+	analyticsHistory: [],
 
 	startSimulation: () => {
 		const now = Date.now();
@@ -344,6 +413,11 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 
 		// Update each machine
 		for (const machine of machines) {
+			// Skip broken or maintenance machines
+			if (machine.status === 'breakdown' || machine.status === 'maintenance') {
+				continue;
+			}
+
 			// If idle and has queue, start next task
 			if (machine.status === 'idle' && machine.queue.length > 0) {
 				const nextTask = machine.queue.shift()!;
@@ -351,6 +425,13 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 				nextTask.remainingMinutes = nextTask.workloadMinutes * machine.effectiveTimeMultiplier;
 				machine.currentTask = nextTask;
 				machine.status = 'processing';
+
+				// Log event
+				logEvent(get, set, 'task_started',
+					`Task ${nextTask.id} started on ${machine.id}`,
+					'info',
+					{ taskId: nextTask.id, machineId: machine.id }
+				);
 			}
 
 			// If processing, update progress
@@ -374,6 +455,13 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 					machine.completedTasks += 1;
 					machine.currentTask = null;
 					machine.status = 'idle';
+
+					// Log event
+					logEvent(get, set, 'task_completed',
+						`Task ${task.id} completed on ${machine.id}`,
+						'info',
+						{ taskId: task.id, machineId: machine.id, recipients: ['supervisor'] as AlertRecipient[] }
+					);
 				}
 			}
 		}
@@ -384,6 +472,11 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 			machines,
 			completedTasks,
 		});
+
+		// Capture analytics every ~30 simulation seconds
+		if (Math.floor(state.simulationTime) % 0.5 === 0) {
+			captureAnalytics(get, set);
+		}
 	},
 
 	addNewTask: () => {
@@ -395,6 +488,12 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 			taskPool: [...state.taskPool, newTask],
 			totalTasksGenerated: state.totalTasksGenerated + 1,
 		});
+
+		logEvent(get, set, 'task_created',
+			`New task ${newTask.id} created (${newTask.priority})`,
+			newTask.priority === 'critical' ? 'critical' : 'info',
+			{ taskId: newTask.id, priority: newTask.priority, recipients: ['supervisor', 'manager'] as AlertRecipient[] }
+		);
 
 		// Realistic delay: Planning department needs time to analyze and assign
 		// This simulates real production planning workflow
@@ -443,6 +542,119 @@ export const useSimulationStore = create<SimulationStore>((set, get) => ({
 				}
 			}, SIMULATION_CONFIG.ASSIGNMENT_DELAY_MS + (index * 800)); // 800ms stagger
 		});
+	},
+
+	toggleMachineBreakdown: (machineId: string) => {
+		const state = get();
+		const machines = [...state.machines];
+		const machineIndex = machines.findIndex(m => m.id === machineId);
+
+		if (machineIndex === -1) return;
+
+		const machine = { ...machines[machineIndex] };
+
+		if (machine.status === 'breakdown') {
+			// ============ REPAIR MACHINE ============
+			logEvent(get, set, 'machine_repaired',
+				`Machine ${machineId} repaired and back online`,
+				'info',
+				{ machineId, recipients: ['technician', 'supervisor'] as AlertRecipient[] }
+			);
+			// Collect ALL tasks from ALL operational machines' queues
+			const allTasksToRedistribute: TaskInstance[] = [];
+
+			for (let i = 0; i < machines.length; i++) {
+				const m = { ...machines[i] };
+				// Only collect from operational machines (not the one being repaired, and not other broken ones)
+				if (m.status !== 'breakdown' && m.status !== 'maintenance' && m.id !== machineId) {
+					// Take all queued tasks (NOT current task - that stays)
+					m.queue.forEach(t => {
+						const task = { ...t };
+						task.status = 'waiting';
+						task.assignedMachine = null;
+						allTasksToRedistribute.push(task);
+					});
+					m.queue = [];
+					machines[i] = m;
+				}
+			}
+
+			// Repair the broken machine
+			machine.status = 'idle';
+			machine.currentTask = null;
+			machine.queue = [];
+			machines[machineIndex] = machine;
+
+			// Add collected tasks to pool
+			set({
+				machines,
+				taskPool: [...state.taskPool, ...allTasksToRedistribute]
+			});
+
+			logEvent(get, set, 'rebalance_triggered',
+				`Production rebalance initiated: ${allTasksToRedistribute.length} tasks redistributed`,
+				'warning',
+				{ tasksAffected: allTasksToRedistribute.length, recipients: ['supervisor'] as AlertRecipient[] }
+			);
+
+			// Delay redistribution to show the effect visually
+			setTimeout(() => {
+				if (get().isRunning) {
+					get().assignAllTasks();
+				}
+			}, SIMULATION_CONFIG.ASSIGNMENT_DELAY_MS);
+
+		} else {
+			// ============ BREAK MACHINE ============
+			const tasksToReturn: TaskInstance[] = [];
+
+			// Return current task
+			if (machine.currentTask) {
+				const task = { ...machine.currentTask };
+				task.status = 'waiting';
+				task.assignedMachine = null;
+				task.progress = 0;
+				task.remainingMinutes = task.workloadMinutes;
+				tasksToReturn.push(task);
+				machine.currentTask = null;
+			}
+
+			// Return queue tasks
+			machine.queue.forEach(t => {
+				const task = { ...t };
+				task.status = 'waiting';
+				task.assignedMachine = null;
+				tasksToReturn.push(task);
+			});
+			machine.queue = [];
+
+			machine.status = 'breakdown';
+			machines[machineIndex] = machine;
+
+			set({
+				machines,
+				taskPool: [...state.taskPool, ...tasksToReturn]
+			});
+
+			logEvent(get, set, 'machine_breakdown',
+				`ALERT: Machine ${machineId} breakdown! ${tasksToReturn.length} tasks returned to pool`,
+				'critical',
+				{ machineId, tasksAffected: tasksToReturn.length, recipients: ['technician', 'supervisor', 'manager'] as AlertRecipient[] }
+			);
+
+			logEvent(get, set, 'alert_sent',
+				`Critical alert dispatched: Machine ${machineId} requires immediate attention`,
+				'warning',
+				{ machineId, recipients: ['technician'] as AlertRecipient[] }
+			);
+
+			// Delay redistribution to show the effect visually
+			setTimeout(() => {
+				if (get().isRunning) {
+					get().assignAllTasks();
+				}
+			}, SIMULATION_CONFIG.ASSIGNMENT_DELAY_MS);
+		}
 	},
 
 	getGlobalMetrics: (): GlobalMetrics => {
