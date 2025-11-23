@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Recordings
+*.mp4
+!recordings/*.mp4
