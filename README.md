@@ -77,7 +77,7 @@ Powiadomienia w czasie rzeczywistym
 | 🚨 **Alert Routing**         | 4 grupy odbiorców            | Technicians, Supervisors, Managers, Quality Control            |
 | 📥 **CSV Export**            | Pełna historia               | Eksport wszystkich zdarzeń do analizy                          |
 
-### Kluczowe Liczby (Validowane z ELPLC):
+### Kluczowe Liczby (Zwalidowane z ELPLC):
 - **$72,000/h** - koszt przestoju linii wariatorów
 - **600 szt/h** - produkcja wariatorów (6 sek/cykl, $120/szt)
 - **93% redukcja strat** - FailSafe (2 min) vs tradycyjna naprawa (30 min)
@@ -451,7 +451,7 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 
 ---
 
-## 🔧 Troubleshooting
+## 🔧 Rozwiązywanie Problemów
 
 ### Aplikacja nie uruchamia się?
 ```powershell
@@ -580,9 +580,9 @@ Skontaktuj się z zespołem FailSafe!
 ---
 
 <div align="center">
-  <h2>🏭 FailSafe Production Simulator</h2>
+  <h2>🏭 Symulator Produkcji FailSafe</h2>
   <p><b>"Zero paniki. 3 sekundy. Nowy plan."</b></p>
-  <p><i>Built with ❤️ for ELPLC by Team FailSafe</i></p>
+  <p><i>Stworzone z ❤️ dla ELPLC przez Zespół FailSafe</i></p>
   <br>
   <p>✅ Demo gotowe do prezentacji!</p>
   <p>🚀 <code>cd production-simulator && npm install && npm run dev</code></p>
