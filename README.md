@@ -552,27 +552,14 @@ Hackathon dla Małopolski 2025
 **Stworzone z ❤️ dla Doskonałości Produkcyjnej ELPLC**
 
 </div>
-- [ ] Oś czasu wykresu Gantta
-- [ ] Planowanie wielodniowe
-- [ ] Czasy przygotowawcze między zadaniami
-- [ ] Przypisywanie operatorów
-
-### Faza 4 - AI/ML
-- [ ] Predykcja awarii (LSTM)
-- [ ] Scheduler z Reinforcement Learning
-- [ ] Wykrywanie anomalii
 
 ---
 
-## 👥 Team FailSafe
+## 👥 Zespół FailSafe
 
 **Hackathon dla Małopolski 2025**  
 Projekt: **FailSafe** - System reagujący na awarie  
 Klient: **ELPLC S.A.** (Tarnów)
-
----
-
-## 📞 Kontakt
 
 Pytania? Sugestie? Feedback?  
 Skontaktuj się z zespołem FailSafe!
