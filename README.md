@@ -147,29 +147,63 @@ Real-time notifications on-the-go
 
 ## 🎨 Interface Highlights
 
-### 🏭 Production Command Center
-**Real-time operations dashboard for shop floor**
+<table>
+<tr>
+<td width="50%" valign="top">
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│ ForgeGrid.OS │ System: 127m │ Load: 67% │ Status: 🟢 ONLINE    │
-├──────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  Task Pool: 8 waiting      [CNC-01]  [CNC-02]  [ASM-A]  [TST-B] │
-│  🔴 Wariator-CNC (25m)      ⚙️ 78%    ⚙️ 82%    ⚙️ 45%   ⚙️ 91% │
-│  🟡 E-Bike Battery (40m)   Q: 3      Q: 2      Q: 1     Q: 4    │
-│  🟢 Damper-Weld (35m)      67m      58m       21m      89m      │
-│                                                                  │
-└──────────────────────────────────────────────────────────────────┘
-```
+### 🏭 Production Command Center
+**Real-time operations dashboard for shop floor team**
+
+**Top Bar - Global Metrics**
+- 🏭 ForgeGrid.OS branding
+- ⏱️ System Time (simulation clock)
+- 📊 Hall Load percentage
+- 🟢 Online/Standby status
+- ⚡ Throughput & ETA metrics
+
+**Left Panel - Task Pool**
+- 📋 All waiting tasks
+- 🔴🟡🟢 Priority indicators
+- 📝 Task details (name, duration)
+- 🎯 Preferred machines
+- ⚡ Auto-assign on machine availability
+
+**Machine Columns (×4)**
+- 🏷️ Machine ID & type
+- ⚙️ Current task with progress bar
+- 📊 Queue visualization (up to 5 visible)
+- 💾 Utilization percentage
+- ⚠️ Breakdown simulation button
+- ✅ Completed task counter
+
+</td>
+<td width="50%" valign="top">
 
 ### 📊 Analytics Intelligence Dashboard
-**Executive insights & business intelligence**
+**Executive insights & business intelligence for management**
 
-- **5 KPI Cards:** Throughput • Completed • In Progress • Waiting • Events
-- **3 Interactive Charts:** Time-series with 5m/15m/30m/1h ranges
-- **Event Distribution:** System activity breakdown by event type
-- **Alert Recipients:** Notification routing analysis (Techs/Supervisors/Managers/QC)
+**KPI Cards (×5)**
+- ⚡ **Throughput** - tasks per hour
+- ✅ **Completed** - total finished
+- ⚙️ **In Progress** - currently active
+- 📋 **Waiting** - queued tasks
+- 📝 **Events** - logged incidents
+
+**Interactive Charts (×3)**
+- 📈 **Hall Load Trend** - Area chart showing capacity utilization over time
+- ⚡ **Task Throughput** - Multi-line chart tracking completed/active/waiting
+- 📊 **Machine Utilization** - Bar chart comparing machine efficiency
+
+**Analytics Features**
+- 🕐 Time range selector (5m / 15m / 30m / 1h)
+- 🚨 Event distribution breakdown by type
+- 👥 Alert recipient tracking (Techs/Supervisors/Managers/QC)
+- 📥 CSV export for full event history
+- 📅 Timestamped event log (last 50 events)
+
+</td>
+</tr>
+</table>
 
 ---
 
