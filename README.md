@@ -3,9 +3,13 @@
 > **System monitoringu i planowania produkcji w czasie rzeczywistym**  
 > Projekt FailSafe • Hackathon dla Małopolski 2025
 
-[![Demo Ready](https://img.shields.io/badge/demo-ready-brightgreen)]()
+[![Demo Ready](https://img.shields.io/badge/demo-ready-brightgreen)](https://netbr3ak.github.io/internal-machine-monitor/)
 [![Tech](https://img.shields.io/badge/tech-React%20%2B%20TypeScript-blue)]()
 [![ELPLC](https://img.shields.io/badge/client-ELPLC-orange)]()
+
+## 🌐 Live Demo
+
+**🚀 [https://netbr3ak.github.io/internal-machine-monitor/](https://netbr3ak.github.io/internal-machine-monitor/)**
 
 ---
 
@@ -82,23 +86,37 @@ npm run dev
 
 ```
 hackaton/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions - auto deployment
+│
 ├── production-simulator/          # ← GŁÓWNA APLIKACJA
 │   ├── src/
 │   │   ├── components/           # Komponenty React
+│   │   │   ├── GlobalMetricsPanel.tsx
+│   │   │   ├── MachineColumn.tsx
+│   │   │   ├── TaskPoolPanel.tsx
+│   │   │   └── SimulationControls.tsx
+│   │   ├── pages/
+│   │   │   └── Analytics.tsx     # Dashboard analityczny
 │   │   ├── types.ts              # Typy TypeScript
 │   │   ├── config.ts             # Konfiguracja maszyn i zadań
 │   │   ├── store.ts              # Zustand store + logika symulacji
 │   │   └── App.tsx               # Główny komponent
-│   ├── INSTRUKCJA_URUCHOMIENIA.md
-│   ├── PROJECT_README.md
+│   │
+│   ├── docs/                      # 📚 Dokumentacja
+│   │   ├── README.md
+│   │   ├── PROJECT_README.md
+│   │   └── INSTRUKCJA_URUCHOMIENIA.md
+│   │
+│   ├── recordings/                # 🎥 Demo nagrania
+│   │   └── *.mp4
+│   │
+│   ├── dist/                      # Build produkcyjny
 │   └── package.json
 │
 ├── README.md                      # ← TEN PLIK
-├── ALGORITHMS.md                  # Opis algorytmów
-├── ELPLC_RESEARCH.md              # Research firmy ELPLC
-├── MURAL.md                       # Lean Canvas
-├── PRESENTATION_GUIDE.md          # Przewodnik prezentacji
-└── PYTANIA_DO_PREZESA.md          # Pytania walidacyjne
+└── start-simulator.ps1            # Szybki start (PowerShell)
 ```
 
 ---
