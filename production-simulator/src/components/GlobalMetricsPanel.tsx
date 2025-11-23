@@ -19,28 +19,35 @@ export function GlobalMetricsPanel({ metrics, simulationTime, isRunning }: Globa
 				'text-emerald-400';
 
 	return (
-		<div className="bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800 p-4 shadow-xl">
-			<div className="flex items-center justify-between gap-6">
+		<div className="bg-slate-950 border-y border-slate-800 p-6 shadow-2xl relative overflow-hidden">
+			{/* Cyberpunk Grid Background */}
+			<div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.9)_2px,transparent_2px),linear-gradient(90deg,rgba(15,23,42,0.9)_2px,transparent_2px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-20 pointer-events-none" />
+
+			<div className="relative z-10 flex items-center justify-between gap-8">
 				{/* Header Section */}
-				<div className="flex items-center gap-4 min-w-max">
-					<div className="p-3 bg-cyan-500/10 rounded-xl border border-cyan-500/20 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
-						<span className="text-2xl">🏭</span>
+				<div className="flex items-center gap-6 min-w-max">
+					<div className="relative group">
+						<div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg blur opacity-20 group-hover:opacity-50 transition duration-500"></div>
+						<div className="relative p-4 bg-slate-900 ring-1 ring-slate-800 rounded-lg flex items-center justify-center">
+							<span className="text-3xl filter drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">🏭</span>
+						</div>
 					</div>
+
 					<div>
-						<h1 className="text-xl font-bold text-slate-100 tracking-tight">
-							Monitor Produkcji
+						<h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-cyan-100 to-slate-400 tracking-tighter uppercase font-mono">
+							ForgeGrid<span className="text-cyan-500">.OS</span>
 						</h1>
-						<div className="flex items-center gap-3 text-sm font-mono mt-1">
-							<span className="text-slate-400 bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50">
-								⏱️ {formatTime(simulationTime)}
+						<div className="flex items-center gap-3 text-xs font-mono mt-2 text-cyan-500/60">
+							<span className="flex items-center gap-2 bg-slate-900/80 px-3 py-1 rounded border border-cyan-900/30">
+								<span className="text-cyan-400">SYS.TIME</span> {formatTime(simulationTime)}
 							</span>
-							<div className={`flex items-center gap-1.5 px-2 py-0.5 rounded border ${isRunning
-									? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
-									: 'bg-slate-700/30 border-slate-600/30 text-slate-400'
+							<div className={`flex items-center gap-2 px-3 py-1 rounded border ${isRunning
+								? 'bg-emerald-950/30 border-emerald-500/30 text-emerald-400'
+								: 'bg-amber-950/30 border-amber-500/30 text-amber-400'
 								}`}>
-								<span className={`w-1.5 h-1.5 rounded-full ${isRunning ? 'bg-emerald-400 animate-pulse' : 'bg-slate-500'}`} />
-								<span className="font-bold text-xs tracking-wide uppercase">
-									{isRunning ? 'LIVE' : 'PAUSED'}
+								<span className={`w-1.5 h-1.5 rounded-sm ${isRunning ? 'bg-emerald-400 shadow-[0_0_8px_currentColor] animate-pulse' : 'bg-amber-400'}`} />
+								<span className="font-bold tracking-widest uppercase">
+									{isRunning ? 'ONLINE' : 'STANDBY'}
 								</span>
 							</div>
 						</div>
@@ -48,65 +55,75 @@ export function GlobalMetricsPanel({ metrics, simulationTime, isRunning }: Globa
 				</div>
 
 				{/* Metrics Grid */}
-				<div className="flex-1 grid grid-cols-5 gap-3">
+				<div className="flex-1 grid grid-cols-5 gap-4">
 					{/* Hall Load */}
-					<div className="bg-slate-800/40 rounded-xl p-3 border border-slate-700/50 flex flex-col justify-between group hover:bg-slate-800/60 transition-all duration-300">
-						<div className="flex justify-between items-start">
-							<div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Obciążenie</div>
-							<div className="text-xs opacity-50">📊</div>
-						</div>
-						<div className={`text-2xl font-bold ${hallLoadColor} tabular-nums mt-1`}>
-							{metrics.hallLoad}<span className="text-sm opacity-60">%</span>
-						</div>
-						<div className="w-full bg-slate-700/30 h-1 rounded-full mt-2 overflow-hidden">
-							<div
-								className={`h-full transition-all duration-500 ${metrics.hallLoad > 80 ? 'bg-red-500' : metrics.hallLoad > 50 ? 'bg-amber-500' : 'bg-emerald-500'}`}
-								style={{ width: `${metrics.hallLoad}%` }}
-							/>
+					<div className="relative bg-slate-900/40 border border-slate-800 p-4 group hover:bg-slate-800/40 transition-all duration-300">
+						<div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-slate-600 group-hover:border-cyan-400 transition-colors"></div>
+						<div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-slate-600 group-hover:border-cyan-400 transition-colors"></div>
+
+						<div className="flex flex-col h-full justify-between relative z-10">
+							<div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Load</div>
+							<div className={`text-4xl font-black font-mono ${hallLoadColor} drop-shadow-sm`}>
+								{metrics.hallLoad}<span className="text-sm text-slate-600 ml-1">%</span>
+							</div>
+							<div className="w-full h-1 bg-slate-800 mt-auto overflow-hidden">
+								<div
+									className={`h-full transition-all duration-500 ${metrics.hallLoad > 80 ? 'bg-red-500' : metrics.hallLoad > 50 ? 'bg-amber-500' : 'bg-emerald-500'}`}
+									style={{ width: `${metrics.hallLoad}%` }}
+								/>
+							</div>
 						</div>
 					</div>
 
 					{/* ETA */}
-					<div className="bg-slate-800/40 rounded-xl p-3 border border-slate-700/50 flex flex-col justify-between group hover:bg-slate-800/60 transition-all duration-300">
-						<div className="flex justify-between items-start">
-							<div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">ETA</div>
-							<div className="text-xs opacity-50">⏱️</div>
-						</div>
-						<div className="text-2xl font-bold text-cyan-400 tabular-nums mt-1">
-							{metrics.estimatedCompletionTime > 0 ? metrics.estimatedCompletionTime : '—'}<span className="text-sm text-slate-500 font-normal ml-0.5">min</span>
+					<div className="relative bg-slate-900/40 border border-slate-800 p-4 group hover:bg-slate-800/40 transition-all duration-300">
+						<div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-slate-600 group-hover:border-cyan-400 transition-colors"></div>
+						<div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-slate-600 group-hover:border-cyan-400 transition-colors"></div>
+
+						<div className="flex flex-col h-full justify-between relative z-10">
+							<div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">ETA</div>
+							<div className="text-4xl font-black font-mono text-cyan-400 drop-shadow-sm">
+								{metrics.estimatedCompletionTime > 0 ? metrics.estimatedCompletionTime : '—'}<span className="text-sm text-slate-600 ml-1">min</span>
+							</div>
 						</div>
 					</div>
 
 					{/* Completed */}
-					<div className="bg-slate-800/40 rounded-xl p-3 border border-slate-700/50 flex flex-col justify-between group hover:bg-slate-800/60 transition-all duration-300">
-						<div className="flex justify-between items-start">
-							<div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Wykonane</div>
-							<div className="text-xs opacity-50">✅</div>
-						</div>
-						<div className="text-2xl font-bold text-emerald-400 tabular-nums mt-1">
-							{metrics.completedCount}
+					<div className="relative bg-slate-900/40 border border-slate-800 p-4 group hover:bg-slate-800/40 transition-all duration-300">
+						<div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-slate-600 group-hover:border-emerald-400 transition-colors"></div>
+						<div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-slate-600 group-hover:border-emerald-400 transition-colors"></div>
+
+						<div className="flex flex-col h-full justify-between relative z-10">
+							<div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Completed</div>
+							<div className="text-4xl font-black font-mono text-emerald-400 drop-shadow-sm">
+								{metrics.completedCount}
+							</div>
 						</div>
 					</div>
 
 					{/* In Progress */}
-					<div className="bg-slate-800/40 rounded-xl p-3 border border-slate-700/50 flex flex-col justify-between group hover:bg-slate-800/60 transition-all duration-300">
-						<div className="flex justify-between items-start">
-							<div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">W toku</div>
-							<div className="text-xs opacity-50">⚡</div>
-						</div>
-						<div className="text-2xl font-bold text-blue-400 tabular-nums mt-1">
-							{metrics.inProgressCount}
+					<div className="relative bg-slate-900/40 border border-slate-800 p-4 group hover:bg-slate-800/40 transition-all duration-300">
+						<div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-slate-600 group-hover:border-blue-400 transition-colors"></div>
+						<div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-slate-600 group-hover:border-blue-400 transition-colors"></div>
+
+						<div className="flex flex-col h-full justify-between relative z-10">
+							<div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Active</div>
+							<div className="text-4xl font-black font-mono text-blue-400 drop-shadow-sm">
+								{metrics.inProgressCount}
+							</div>
 						</div>
 					</div>
 
 					{/* Waiting */}
-					<div className={`bg-slate-800/40 rounded-xl p-3 border flex flex-col justify-between transition-all duration-300 ${metrics.waitingCount > 10 ? 'border-amber-500/30 bg-amber-500/5' : 'border-slate-700/50 hover:bg-slate-800/60'}`}>
-						<div className="flex justify-between items-start">
-							<div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Kolejka</div>
-							<div className="text-xs opacity-50">⏳</div>
-						</div>
-						<div className={`text-2xl font-bold tabular-nums mt-1 ${metrics.waitingCount > 10 ? 'text-amber-400' : 'text-slate-300'}`}>
-							{metrics.waitingCount}
+					<div className={`relative bg-slate-900/40 border p-4 group hover:bg-slate-800/40 transition-all duration-300 ${metrics.waitingCount > 10 ? 'border-amber-900/50' : 'border-slate-800'}`}>
+						<div className={`absolute top-0 left-0 w-2 h-2 border-t border-l transition-colors ${metrics.waitingCount > 10 ? 'border-amber-500' : 'border-slate-600 group-hover:border-amber-400'}`}></div>
+						<div className={`absolute bottom-0 right-0 w-2 h-2 border-b border-r transition-colors ${metrics.waitingCount > 10 ? 'border-amber-500' : 'border-slate-600 group-hover:border-amber-400'}`}></div>
+
+						<div className="flex flex-col h-full justify-between relative z-10">
+							<div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Queue</div>
+							<div className={`text-4xl font-black font-mono drop-shadow-sm ${metrics.waitingCount > 10 ? 'text-amber-400' : 'text-slate-400'}`}>
+								{metrics.waitingCount}
+							</div>
 						</div>
 					</div>
 				</div>

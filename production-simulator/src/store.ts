@@ -49,19 +49,34 @@ function initializeMachines(): Machine[] {
 }
 
 function generateTask(idCounter: number): TaskInstance {
-	// Weighted task type selection: 60% CNC, 20% Assembly, 20% Test
+	// Weighted task type selection optimized for machine capacity
+	// CNC (5 machines): 80%
+	// Assembly/Welding (2 machines): 10%
+	// Test/Quality/Packaging (1 machine + shared): 10%
 	const rand = Math.random();
 	let selectedTypes: typeof TASK_TYPES;
-	if (rand < 0.6) {
-		// 60% CNC
+
+	if (rand < 0.85) {
+		// 85% CNC (Increased from 80%)
 		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('CNC-'));
-	} else if (rand < 0.80) {
-		// 20% Assembly
-		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('ASM-'));
+	} else if (rand < 0.90) {
+		// 5% Assembly & Welding (Reduced from 10%)
+		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('ASM-') || t.taskTypeId.startsWith('WLD-'));
 	} else {
-		// 20% Test
-		selectedTypes = TASK_TYPES.filter(t => t.taskTypeId.startsWith('TST-'));
+		// 10% Test, Calibration, Packaging, Rework
+		selectedTypes = TASK_TYPES.filter(t =>
+			t.taskTypeId.startsWith('TST-') ||
+			t.taskTypeId.startsWith('CAL-') ||
+			t.taskTypeId.startsWith('PKG-') ||
+			t.taskTypeId.startsWith('RWK-')
+		);
 	}
+
+	// Fallback if filter returns empty (shouldn't happen with current config)
+	if (selectedTypes.length === 0) {
+		selectedTypes = TASK_TYPES;
+	}
+
 	const taskType = selectedTypes[Math.floor(Math.random() * selectedTypes.length)];
 	const workload = applyVariance(taskType.baseWorkloadMinutes, taskType.durationVariancePercent);
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { LayoutGroup } from 'framer-motion';
 import { useSimulationStore } from './store';
 import { GlobalMetricsPanel } from './components/GlobalMetricsPanel';
 import { TaskPoolPanel } from './components/TaskPoolPanel';
@@ -73,52 +74,58 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans selection:bg-cyan-500/30">
-      {/* Top Bar - Global Metrics */}
-      <header className="flex-none p-4 pb-2 z-10">
-        <GlobalMetricsPanel
-          metrics={globalMetrics}
-          simulationTime={simulationTime}
-          isRunning={isRunning}
-        />
-      </header>
+    <LayoutGroup>
+      <div className="flex flex-col h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans selection:bg-cyan-500/30 relative">
+        {/* Global Cyberpunk Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0)_0%,rgba(2,6,23,0.8)_100%)] pointer-events-none" />
 
-      {/* Main Content - Three Zones */}
-      <main className="flex-1 flex gap-4 px-4 min-h-0">
-        {/* Left Panel - Task Pool */}
-        <aside className="w-80 flex-none flex flex-col h-full">
-          <TaskPoolPanel tasks={taskPool} />
-        </aside>
+        {/* Top Bar - Global Metrics */}
+        <header className="flex-none p-4 pb-2 z-10">
+          <GlobalMetricsPanel
+            metrics={globalMetrics}
+            simulationTime={simulationTime}
+            isRunning={isRunning}
+          />
+        </header>
 
-        {/* Right Panel - Machines Grid */}
-        <section className="flex-1 flex flex-col h-full min-w-0">
-          <div className="flex-1 bg-slate-900/30 rounded-2xl border border-slate-800/50 p-4 overflow-y-auto custom-scrollbar">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-2 gap-4 h-full">
-              {machines.map((machine) => (
-                <MachineColumn
-                  key={machine.id}
-                  machine={machine}
-                  metrics={getMachineMetrics(machine.id)}
-                />
-              ))}
+        {/* Main Content - Three Zones */}
+        <main className="flex-1 flex gap-4 px-4 min-h-0 z-10">
+          {/* Left Panel - Task Pool */}
+          <aside className="w-80 flex-none flex flex-col h-full">
+            <TaskPoolPanel tasks={taskPool} />
+          </aside>
+
+          {/* Right Panel - Machines Grid */}
+          <section className="flex-1 flex flex-col h-full min-w-0">
+            <div className="flex-1 p-1 overflow-y-auto custom-scrollbar">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-2 gap-4 h-full">
+                {machines.map((machine) => (
+                  <MachineColumn
+                    key={machine.id}
+                    machine={machine}
+                    metrics={getMachineMetrics(machine.id)}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
 
-      {/* Bottom Bar - Controls */}
-      <footer className="flex-none p-4 pt-2 z-10">
-        <SimulationControls
-          isRunning={isRunning}
-          onStart={handleStart}
-          onPause={pauseSimulation}
-          onReset={() => {
-            resetSimulation();
-            setTimeout(() => assignAllTasks(), 100);
-          }}
-        />
-      </footer>
-    </div>
+        {/* Bottom Bar - Controls */}
+        <footer className="flex-none p-4 pt-2 z-10">
+          <SimulationControls
+            isRunning={isRunning}
+            onStart={handleStart}
+            onPause={pauseSimulation}
+            onReset={() => {
+              resetSimulation();
+              setTimeout(() => assignAllTasks(), 100);
+            }}
+          />
+        </footer>
+      </div>
+    </LayoutGroup>
   );
 }
 

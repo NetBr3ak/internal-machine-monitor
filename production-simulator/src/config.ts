@@ -4,58 +4,58 @@ import type { Machine, TaskType } from './types';
 export const MACHINES: Omit<Machine, 'effectiveTimeMultiplier' | 'status' | 'currentTask' | 'queue' | 'completedTasks' | 'totalProcessingTime'>[] = [
 	{
 		id: 'M1',
-		name: 'CNC-01 High Precision',
+		name: 'CNC Mill-01 (Haas VF-2)',
 		type: 'CNC',
-		description: 'Frezarka CNC - obróbka precyzyjna części aluminiowych',
+		description: 'CNC Milling - Precision aluminum machining',
 		baseTimeMultiplier: 0.8, // Fast machine
 	},
 	{
 		id: 'M2',
-		name: 'CNC-02 High Precision',
+		name: 'CNC Mill-02 (DMG MORI)',
 		type: 'CNC',
-		description: 'Frezarka CNC - obróbka precyzyjna części aluminiowych',
+		description: 'CNC Milling - Precision aluminum machining',
 		baseTimeMultiplier: 0.8, // Fast machine
 	},
 	{
 		id: 'M3',
-		name: 'Assembly-Line A',
+		name: 'Assembly Line A (Kuka)',
 		type: 'Assembly',
-		description: 'Linia montażowa - złożenia i spawanie',
+		description: 'Assembly Line - Assembly and welding',
 		baseTimeMultiplier: 1.0, // Normal speed
 	},
 	{
 		id: 'M4',
-		name: 'Test-Stand B',
+		name: 'Test Station B (EOL)',
 		type: 'Test',
-		description: 'Stanowisko testowe - testy EOL i kontrola jakości',
+		description: 'Test Station - EOL testing and quality control',
 		baseTimeMultiplier: 1.2, // Slower machine
 	},
 	{
 		id: 'M5',
-		name: 'CNC-03 High Precision',
+		name: 'CNC Mill-03 (Mazak)',
 		type: 'CNC',
-		description: 'Frezarka CNC - obróbka precyzyjna części aluminiowych',
+		description: 'CNC Milling - Precision aluminum machining',
 		baseTimeMultiplier: 0.8,
 	},
 	{
 		id: 'M6',
-		name: 'CNC-04 High Precision',
+		name: 'CNC Mill-04 (Okuma)',
 		type: 'CNC',
-		description: 'Frezarka CNC - obróbka precyzyjna części aluminiowych',
+		description: 'CNC Milling - Precision aluminum machining',
 		baseTimeMultiplier: 0.8,
 	},
 	{
 		id: 'M7',
-		name: 'Assembly-Line B',
+		name: 'Assembly Line B (Fanuc)',
 		type: 'Assembly',
-		description: 'Linia montażowa - złożenia i spawanie',
+		description: 'Assembly Line - Assembly and welding',
 		baseTimeMultiplier: 1.0,
 	},
 	{
 		id: 'M8',
-		name: 'CNC-05 High Precision',
+		name: 'CNC Mill-05 (Haas VF-4)',
 		type: 'CNC',
-		description: 'Frezarka CNC - obróbka precyzyjna części aluminiowych',
+		description: 'CNC Milling - Precision aluminum machining',
 		baseTimeMultiplier: 0.8,
 	},
 ];
@@ -73,7 +73,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'ASM-BAT-E48',
-		displayName: 'ASM: Li-Ion Battery Pack 48V',
+		displayName: 'Assembly: Battery Pack 48V',
 		baseWorkloadMinutes: 45,
 		durationVariancePercent: 0.08,
 		preferredMachines: ['M3', 'M7'],
@@ -82,7 +82,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'WLD-SHK-H22',
-		displayName: 'WLD: Shock Absorber Housing',
+		displayName: 'Welding: Shock Absorber Housing',
 		baseWorkloadMinutes: 28,
 		durationVariancePercent: 0.15,
 		preferredMachines: ['M3', 'M7'],
@@ -91,7 +91,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'ASM-HRN-M16',
-		displayName: 'ASM: Wire Harness Main-16p',
+		displayName: 'Assembly: Main Harness 16-pin',
 		baseWorkloadMinutes: 22,
 		durationVariancePercent: 0.18,
 		preferredMachines: ['M3', 'M7'],
@@ -100,7 +100,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'CNC-HSG-AL60',
-		displayName: 'CNC: Enclosure AL6061-T6',
+		displayName: 'CNC: Controller Housing IP67',
 		baseWorkloadMinutes: 38,
 		durationVariancePercent: 0.10,
 		preferredMachines: ['M1', 'M2', 'M5', 'M6', 'M8'],
@@ -109,7 +109,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'TST-EOL-EXT',
-		displayName: 'TST: EOL Extended Protocol',
+		displayName: 'Test: Full EOL Protocol',
 		baseWorkloadMinutes: 55,
 		durationVariancePercent: 0.12,
 		preferredMachines: ['M4'],
@@ -118,7 +118,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'TST-EOL-STD',
-		displayName: 'TST: EOL Standard Check',
+		displayName: 'Test: Basic Inspection',
 		baseWorkloadMinutes: 18,
 		durationVariancePercent: 0.15,
 		preferredMachines: ['M4'],
@@ -127,7 +127,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'CAL-SNS-P04',
-		displayName: 'CAL: Sensor Array P-Series',
+		displayName: 'Calibration: Sensor Array P',
 		baseWorkloadMinutes: 42,
 		durationVariancePercent: 0.14,
 		preferredMachines: ['M4'],
@@ -136,7 +136,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'PKG-KIT-STD',
-		displayName: 'PKG: Complete Kit Standard',
+		displayName: 'Packaging: Assembly Kit',
 		baseWorkloadMinutes: 15,
 		durationVariancePercent: 0.20,
 		preferredMachines: ['M3', 'M4', 'M7'],
@@ -145,7 +145,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'RWK-QC-MINOR',
-		displayName: 'RWK: QC Minor Defects',
+		displayName: 'Rework: Paint Defects',
 		baseWorkloadMinutes: 25,
 		durationVariancePercent: 0.25,
 		preferredMachines: ['M1', 'M2', 'M3', 'M5', 'M6', 'M7', 'M8'],
@@ -154,7 +154,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'ASM-INV-PWR',
-		displayName: 'ASM: Inverter Controller 5kW',
+		displayName: 'Assembly: Inverter 5kW',
 		baseWorkloadMinutes: 48,
 		durationVariancePercent: 0.10,
 		preferredMachines: ['M3', 'M7'],
@@ -172,7 +172,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'CNC-BRK-ST45',
-		displayName: 'CNC: Brake Caliper Steel',
+		displayName: 'CNC: Brake Caliper',
 		baseWorkloadMinutes: 40,
 		durationVariancePercent: 0.11,
 		preferredMachines: ['M1', 'M2', 'M5', 'M6', 'M8'],
@@ -181,7 +181,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'ASM-MOT-BLDC',
-		displayName: 'ASM: BLDC Motor 2.5kW',
+		displayName: 'Assembly: BLDC Motor 2.5kW',
 		baseWorkloadMinutes: 52,
 		durationVariancePercent: 0.09,
 		preferredMachines: ['M3', 'M7'],
@@ -190,7 +190,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'TST-VIB-A01',
-		displayName: 'TST: Vibration Analysis',
+		displayName: 'Test: Vibration Analysis',
 		baseWorkloadMinutes: 30,
 		durationVariancePercent: 0.16,
 		preferredMachines: ['M4'],
@@ -199,7 +199,7 @@ export const TASK_TYPES: TaskType[] = [
 	},
 	{
 		taskTypeId: 'WLD-FRM-TIG',
-		displayName: 'WLD: Frame Assembly TIG',
+		displayName: 'Welding: Support Frame TIG',
 		baseWorkloadMinutes: 36,
 		durationVariancePercent: 0.14,
 		preferredMachines: ['M3', 'M7'],
@@ -232,10 +232,10 @@ export const SIMULATION_CONFIG = {
 	SLOW_MACHINE_MULT_MAX: 1.3,
 
 	// Realistic production overheads
-	TRANSPORT_TIME_MINUTES: 5, // Czas transportu między stanowiskami
-	SETUP_TIME_MINUTES: 3, // Czas przezbrojenia przy zmianie typu zadania
-	ASSIGNMENT_DELAY_MS: 2000, // Delay przed przypisaniem nowego zadania (planowanie)
-	BATCH_OPTIMIZATION_WINDOW: 5, // Ile zadań analizować jednocześnie dla optymalizacji
+	TRANSPORT_TIME_MINUTES: 5, // Transport time between stations
+	SETUP_TIME_MINUTES: 3, // Setup time when changing task type
+	ASSIGNMENT_DELAY_MS: 2000, // Delay before assigning new task (planning)
+	BATCH_OPTIMIZATION_WINDOW: 5, // How many tasks to analyze simultaneously for optimization
 };
 
 // Priority weights for scheduling
