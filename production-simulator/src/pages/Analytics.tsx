@@ -108,8 +108,10 @@ export function Analytics({ onBack }: AnalyticsProps) {
 								<XAxis dataKey="simTime" stroke="#64748b" tick={{ fontSize: 11 }} tickFormatter={(val) => `${Math.floor(val)}m`} />
 								<YAxis stroke="#64748b" tick={{ fontSize: 11 }} domain={[0, 100]} />
 								<Tooltip
-									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px' }}
-									labelStyle={{ color: '#06b6d4' }}
+									cursor={{ fill: 'rgba(6, 182, 212, 0.1)' }}
+									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px', color: '#e2e8f0' }}
+									labelStyle={{ color: '#06b6d4', fontWeight: 'bold' }}
+									itemStyle={{ color: '#e2e8f0' }}
 								/>
 								<Area type="monotone" dataKey="hallLoad" stroke="#06b6d4" fillOpacity={1} fill="url(#hallLoadGradient)" strokeWidth={2} />
 							</AreaChart>
@@ -124,8 +126,10 @@ export function Analytics({ onBack }: AnalyticsProps) {
 								<XAxis dataKey="simTime" stroke="#64748b" tick={{ fontSize: 11 }} tickFormatter={(val) => `${Math.floor(val)}m`} />
 								<YAxis stroke="#64748b" tick={{ fontSize: 11 }} />
 								<Tooltip
-									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px' }}
-									labelStyle={{ color: '#10b981' }}
+									cursor={{ strokeDasharray: '3 3', stroke: '#06b6d4' }}
+									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px', color: '#e2e8f0' }}
+									labelStyle={{ color: '#06b6d4', fontWeight: 'bold' }}
+									itemStyle={{ color: '#e2e8f0' }}
 								/>
 								<Line type="monotone" dataKey="completedTasks" stroke="#10b981" strokeWidth={2} dot={false} name="Completed" />
 								<Line type="monotone" dataKey="activeTasks" stroke="#f59e0b" strokeWidth={2} dot={false} name="Active" />
@@ -149,7 +153,10 @@ export function Analytics({ onBack }: AnalyticsProps) {
 								<XAxis dataKey="name" stroke="#64748b" tick={{ fontSize: 11 }} />
 								<YAxis stroke="#64748b" tick={{ fontSize: 11 }} domain={[0, 100]} />
 								<Tooltip
-									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px' }}
+									cursor={{ fill: 'rgba(6, 182, 212, 0.1)' }}
+									contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '4px', color: '#e2e8f0' }}
+									labelStyle={{ color: '#06b6d4', fontWeight: 'bold' }}
+									itemStyle={{ color: '#e2e8f0' }}
 								/>
 								<Bar dataKey="utilization" fill="#06b6d4" radius={[4, 4, 0, 0]} />
 							</BarChart>
