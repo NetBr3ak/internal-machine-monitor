@@ -54,7 +54,7 @@ export function SimulationControls({ isRunning, onStart, onPause, onReset }: Sim
 						relative group overflow-hidden px-8 py-3 border transition-all duration-300
 						${isRunning
 							? 'border-rose-500/50 hover:border-rose-500 bg-rose-950/30 hover:bg-rose-900/40'
-							: 'border-emerald-500/50 hover:border-emerald-500 bg-emerald-950/30 hover:bg-emerald-900/40'
+							: 'border-emerald-500/50 hover:border-emerald-500 bg-emerald-950/30 hover:bg-emerald-900/40 animate-pulse-3'
 						}
 					`}
 				>
@@ -74,7 +74,7 @@ export function SimulationControls({ isRunning, onStart, onPause, onReset }: Sim
 
 				<button
 					onClick={onReset}
-					className="px-6 py-3 border border-slate-700 hover:border-cyan-500 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-all duration-300 group relative overflow-hidden"
+					className="px-6 py-3 border border-slate-700 hover:border-cyan-500 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-all duration-300 group relative overflow-hidden animate-pulse-3"
 				>
 					<div className="absolute inset-0 bg-cyan-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
 					<span className="relative z-10 font-bold tracking-wider uppercase text-sm flex items-center gap-2">

@@ -44,29 +44,42 @@ function App() {
     return () => clearInterval(interval);
   }, [isRunning, tick]);
 
-  // Periodic batch task generation - Realistic production order arrivals
+  // Periodic batch task generation - Realistic production order arrivals with rush periods
   useEffect(() => {
     if (!isRunning) return;
+
+    let rushPeriodActive = false;
+    let timeoutId: number;
 
     const generateTaskBatch = () => {
       addTaskBatch();
 
-      // Schedule next batch with realistic intervals
-      const nextInterval = Math.random() *
-        (SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MAX - SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN) +
-        SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN;
+      // Check if we should be in rush period (every 60 sim minutes for 15 sim minutes)
+      const simMinutes = simulationTime % 60;
+      const shouldBeRushPeriod = simMinutes >= 0 && simMinutes < 15;
 
-      setTimeout(generateTaskBatch, nextInterval);
+      if (shouldBeRushPeriod !== rushPeriodActive) {
+        rushPeriodActive = shouldBeRushPeriod;
+      }
+
+      // During rush period: 2x faster (half the interval)
+      const intervalMultiplier = rushPeriodActive ? 0.5 : 1.0;
+
+      const nextInterval = (Math.random() *
+        (SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MAX - SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN) +
+        SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN) * intervalMultiplier;
+
+      timeoutId = window.setTimeout(generateTaskBatch, nextInterval);
     };
 
     const initialDelay = Math.random() *
       (SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MAX - SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN) +
       SIMULATION_CONFIG.BATCH_ARRIVAL_INTERVAL_MIN;
 
-    const timeout = setTimeout(generateTaskBatch, initialDelay);
+    timeoutId = window.setTimeout(generateTaskBatch, initialDelay);
 
-    return () => clearTimeout(timeout);
-  }, [isRunning, addTaskBatch]);
+    return () => clearTimeout(timeoutId);
+  }, [isRunning, addTaskBatch, simulationTime]);
 
   const handleStart = () => {
     if (taskPool.length > 0) {
@@ -97,7 +110,7 @@ function App() {
           </button>
           <button
             onClick={() => setActiveView('analytics')}
-            className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm"
+            className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm animate-pulse-3"
           >
             📊 Analytics
           </button>

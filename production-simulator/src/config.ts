@@ -216,12 +216,12 @@ export const SIMULATION_CONFIG = {
 	INITIAL_TASKS_MAX: 28,
 
 	// Realistic batch arrival system (Poisson-like distribution)
-	// Increased frequency (3x faster) as requested
-	BATCH_ARRIVAL_INTERVAL_MIN: 2500, // ms (was 8000)
-	BATCH_ARRIVAL_INTERVAL_MAX: 6500, // ms (was 20000)
+	// Increased frequency (2x faster) as requested
+	BATCH_ARRIVAL_INTERVAL_MIN: 4000, // ms (was 8000)
+	BATCH_ARRIVAL_INTERVAL_MAX: 10000, // ms (was 20000)
 	BATCH_SIZE_MIN: 1,
-	BATCH_SIZE_MAX: 4, // Increased by 10% for more throughput
-	BATCH_SIZE_WEIGHTS: [0.40, 0.30, 0.20, 0.10], // Adjusted for 4-item batches
+	BATCH_SIZE_MAX: 4, // Increased for more throughput
+	BATCH_SIZE_WEIGHTS: [0.35, 0.30, 0.25, 0.10], // Adjusted for 4-item batches
 
 	// Machine time multiplier variance
 	FAST_MACHINE_MULT_MIN: 0.25,

@@ -107,7 +107,7 @@ export function MachineColumn({ machine, metrics }: MachineColumnProps) {
 							w-8 h-8 flex items-center justify-center rounded border transition-all duration-200
 							${machine.status === 'breakdown'
 									? 'bg-red-500 text-white border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.8)] animate-[pulse_0.8s_ease-in-out_infinite]'
-									: 'bg-slate-800 border-slate-700 text-slate-600 hover:text-red-400 hover:border-red-500/50 hover:bg-slate-800/80'}
+									: 'bg-slate-800 border-slate-700 text-slate-600 hover:text-red-400 hover:border-red-500/50 hover:bg-slate-800/80 animate-pulse-3'}
 							`}
 							title={machine.status === 'breakdown' ? "Repair Machine" : "Simulate Breakdown"}
 						>
