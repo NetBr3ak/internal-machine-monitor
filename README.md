@@ -14,47 +14,47 @@
 
 ---
 
-## 🌐 Live Demo & Platforms
+## 🌐 Demo Na Żywo & Platformy
 
 <table>
 <tr>
 <td width="50%" align="center">
-<h3>🖥️ Desktop Web App</h3>
+<h3>🖥️ Aplikacja Webowa Desktop</h3>
 <a href="https://netbr3ak.github.io/internal-machine-monitor/">
-<img src="https://img.shields.io/badge/LAUNCH_NOW-00D9FF?style=for-the-badge&logo=googlechrome&logoColor=white" />
+<img src="https://img.shields.io/badge/URUCHOM_TERAZ-00D9FF?style=for-the-badge&logo=googlechrome&logoColor=white" />
 </a>
 <br/><br/>
-<strong>✅ Available Now</strong><br/>
+<strong>✅ Dostępne Teraz</strong><br/>
 Chrome, Firefox, Edge, Safari<br/>
 <code>netbr3ak.github.io/internal-machine-monitor</code>
 </td>
 <td width="50%" align="center">
-<h3>📱 Mobile Apps</h3>
+<h3>📱 Aplikacje Mobilne</h3>
 <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white" />
 <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
 <br/><br/>
-<strong>🚧 Coming Soon</strong><br/>
-Native Android & iOS apps<br/>
-Real-time notifications on-the-go
+<strong>🚧 Wkrótce</strong><br/>
+Natywne aplikacje Android i iOS<br/>
+Powiadomienia w czasie rzeczywistym
 </td>
 </tr>
 </table>
 
 ---
 
-## 💎 Why ForgeGrid?
+## 💎 Dlaczego ForgeGrid?
 
 <div align="center">
 
-### **From $72,000/hour losses to ZERO downtime**
+### **Od strat $72,000/godz do ZERO przestojów**
 
-|         Before FailSafe         |          With ForgeGrid          |         Impact         |
-| :-----------------------------: | :------------------------------: | :--------------------: |
-|  🔴 **30 min** avg repair time   | 🟢 **2 min** detection + response |    ⚡ **93% faster**    |
-| 💸 **$36,000** loss per incident |   💰 **$2,400** minimal impact    |  💵 **$33,600 saved**   |
-|  📉 Manual task redistribution   |   🤖 Auto-rebalancing algorithm   | 🎯 **Zero manual work** |
+|         Przed FailSafe          |          Z ForgeGrid           |          Efekt          |
+| :-----------------------------: | :----------------------------: | :---------------------: |
+|  🔴 **30 min** średni czas naprawy | 🟢 **2 min** wykrycie + reakcja |    ⚡ **93% szybciej**    |
+| 💸 **$36,000** strata na incydent |  💰 **$2,400** minimalny wpływ  | 💵 **$33,600 oszczędności** |
+|  📉 Manualna redystrybucja zadań  |  🤖 Algorytm auto-równoważenia  | 🎯 **Zero pracy ręcznej** |
 
-### ROI: **$4,000,000/year** @ 10 incidents/month
+### ROI: **$4,000,000/rok** @ 10 incydentów/miesiąc
 
 </div>
 
@@ -85,59 +85,59 @@ Real-time notifications on-the-go
 
 ---
 
-## ⚡ System Capabilities
+## ⚡ Możliwości Systemu
 
 <table>
 <tr>
 <td width="33%" valign="top">
 
-### 🤖 **AI Orchestration**
+### 🤖 **Orkiestracja AI**
 
-**Smart Task Assignment**
-- 🎯 Priority-weighted scheduling
-- 📊 Load balancing (4 machines)
-- ⚡ Makespan minimization
-- 🔄 Auto-rebalancing on failure
+**Inteligentne Przydzielanie Zadań**
+- 🎯 Harmonogramowanie z wagami priorytetów
+- 📊 Równoważenie obciążenia (4 maszyny)
+- ⚡ Minimalizacja czasu wykonania
+- 🔄 Automatyczne przerównoważenie przy awarii
 
-**Real-Time Adaptation**
-- 🚨 Instant breakdown detection
-- 🔧 Automatic redistribution
-- ⏱️ Dynamic ETA recalculation
-- 📈 Throughput optimization
-
-</td>
-<td width="33%" valign="top">
-
-### 📊 **Live Monitoring**
-
-**Production Floor**
-- 🏭 4 machines (CNC/ASM/TST/PKG)
-- 📋 12 ELPLC product types
-- 🔴🟡🟢 3-tier priority system
-- ⚙️ Task-level progress tracking
-
-**Key Metrics**
-- 📈 Hall Load: 0-100%
-- ⚡ Throughput: tasks/hour
-- ⏰ ETA: completion time
-- 🎯 Utilization: per-machine %
+**Adaptacja w Czasie Rzeczywistym**
+- 🚨 Natychmiastowe wykrywanie awarii
+- 🔧 Automatyczna redystrybucja
+- ⏱️ Dynamiczne przeliczanie ETA
+- 📈 Optymalizacja przepustowości
 
 </td>
 <td width="33%" valign="top">
 
-### 📈 **Advanced Analytics**
+### 📊 **Monitoring Na Żywo**
 
-**Data Visualization**
-- 📊 3 interactive charts
-- 📉 Hall Load Trend (Area)
-- ⚡ Task Throughput (Line)
-- 📊 Machine Util (Bar)
+**Hala Produkcyjna**
+- 🏭 4 maszyny (CNC/ASM/TST/PKG)
+- 📋 12 typów produktów ELPLC
+- 🔴🟡🟢 3-poziomowy system priorytetów
+- ⚙️ Śledzenie postępu na poziomie zadań
 
-**Reporting & Export**
-- 📝 8 event types logged
-- 🚨 Alert routing (4 groups)
-- 📥 CSV export (full history)
-- 🔍 Timestamped event log
+**Kluczowe Metryki**
+- 📈 Obciążenie Hali: 0-100%
+- ⚡ Przepustowość: zadania/godzinę
+- ⏰ ETA: czas zakończenia
+- 🎯 Wykorzystanie: % na maszynę
+
+</td>
+<td width="33%" valign="top">
+
+### 📈 **Zaawansowana Analityka**
+
+**Wizualizacja Danych**
+- 📊 3 interaktywne wykresy
+- 📉 Trend Obciążenia Hali (Obszar)
+- ⚡ Przepustowość Zadań (Linia)
+- 📊 Wykorzystanie Maszyn (Słupki)
+
+**Raportowanie i Eksport**
+- 📝 8 typów zdarzeń logowanych
+- 🚨 Routing alertów (4 grupy)
+- 📥 Eksport CSV (pełna historia)
+- 🔍 Log zdarzeń z oznaczeniem czasu
 
 </td>
 </tr>
@@ -145,61 +145,61 @@ Real-time notifications on-the-go
 
 ---
 
-## 🎨 Interface Highlights
+## 🎨 Najważniejsze Elementy Interfejsu
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🏭 Production Command Center
-**Real-time operations dashboard for shop floor team**
+### 🏭 Centrum Dowodzenia Produkcją
+**Dashboard operacji w czasie rzeczywistym dla zespołu hali produkcyjnej**
 
-**Top Bar - Global Metrics**
-- 🏭 ForgeGrid.OS branding
-- ⏱️ System Time (simulation clock)
-- 📊 Hall Load percentage
-- 🟢 Online/Standby status
-- ⚡ Throughput & ETA metrics
+**Górny Pasek - Metryki Globalne**
+- 🏭 Branding ForgeGrid.OS
+- ⏱️ Czas Systemu (zegar symulacji)
+- 📊 Procent obciążenia hali
+- 🟢 Status Online/Standby
+- ⚡ Metryki przepustowości i ETA
 
-**Left Panel - Task Pool**
-- 📋 All waiting tasks
-- 🔴🟡🟢 Priority indicators
-- 📝 Task details (name, duration)
-- 🎯 Preferred machines
-- ⚡ Auto-assign on machine availability
+**Lewy Panel - Pula Zadań**
+- 📋 Wszystkie zadania oczekujące
+- 🔴🟡🟢 Wskaźniki priorytetu
+- 📝 Szczegóły zadania (nazwa, czas trwania)
+- 🎯 Preferowane maszyny
+- ⚡ Auto-przydział przy dostępności maszyny
 
-**Machine Columns (×4)**
-- 🏷️ Machine ID & type
-- ⚙️ Current task with progress bar
-- 📊 Queue visualization (up to 5 visible)
-- 💾 Utilization percentage
-- ⚠️ Breakdown simulation button
-- ✅ Completed task counter
+**Kolumny Maszyn (×4)**
+- 🏷️ ID maszyny i typ
+- ⚙️ Aktualne zadanie z paskiem postępu
+- 📊 Wizualizacja kolejki (do 5 widocznych)
+- 💾 Procent wykorzystania
+- ⚠️ Przycisk symulacji awarii
+- ✅ Licznik ukończonych zadań
 
 </td>
 <td width="50%" valign="top">
 
-### 📊 Analytics Intelligence Dashboard
-**Executive insights & business intelligence for management**
+### 📊 Dashboard Analityki i Inteligencji
+**Wgląd dla zarządu i business intelligence dla kadry kierowniczej**
 
-**KPI Cards (×5)**
-- ⚡ **Throughput** - tasks per hour
-- ✅ **Completed** - total finished
-- ⚙️ **In Progress** - currently active
-- 📋 **Waiting** - queued tasks
-- 📝 **Events** - logged incidents
+**Karty KPI (×5)**
+- ⚡ **Przepustowość** - zadania na godzinę
+- ✅ **Ukończone** - suma zakończonych
+- ⚙️ **W Trakcie** - aktualnie aktywne
+- 📋 **Oczekujące** - zadania w kolejce
+- 📝 **Zdarzenia** - zalogowane incydenty
 
-**Interactive Charts (×3)**
-- 📈 **Hall Load Trend** - Area chart showing capacity utilization over time
-- ⚡ **Task Throughput** - Multi-line chart tracking completed/active/waiting
-- 📊 **Machine Utilization** - Bar chart comparing machine efficiency
+**Interaktywne Wykresy (×3)**
+- 📈 **Trend Obciążenia Hali** - Wykres obszarowy pokazujący wykorzystanie pojemności w czasie
+- ⚡ **Przepustowość Zadań** - Wykres wieloliniowy śledzący ukończone/aktywne/oczekujące
+- 📊 **Wykorzystanie Maszyn** - Wykres słupkowy porównujący efektywność maszyn
 
-**Analytics Features**
-- 🕐 Time range selector (5m / 15m / 30m / 1h)
-- 🚨 Event distribution breakdown by type
-- 👥 Alert recipient tracking (Techs/Supervisors/Managers/QC)
-- 📥 CSV export for full event history
-- 📅 Timestamped event log (last 50 events)
+**Funkcje Analityczne**
+- 🕐 Wybór zakresu czasu (5m / 15m / 30m / 1h)
+- 🚨 Rozkład zdarzeń według typu
+- 👥 Śledzenie odbiorców alertów (Technicy/Kierownicy/Menedżerowie/Kontrola Jakości)
+- 📥 Eksport CSV dla pełnej historii zdarzeń
+- 📅 Log zdarzeń z oznaczeniem czasu (ostatnie 50 zdarzeń)
 
 </td>
 </tr>
@@ -207,34 +207,34 @@ Real-time notifications on-the-go
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Szybki Start
 
-### Option 1: Live Demo (Fastest)
+### Opcja 1: Demo Na Żywo (Najszybsza)
 ```bash
-# Just click and explore!
+# Po prostu kliknij i eksploruj!
 https://netbr3ak.github.io/internal-machine-monitor/
 ```
 
-### Option 2: Local Development
+### Opcja 2: Rozwój Lokalny
 ```powershell
-# Clone & setup
+# Klonowanie i konfiguracja
 git clone https://github.com/NetBr3ak/internal-machine-monitor.git
 cd internal-machine-monitor/production-simulator
 
-# Install & run
+# Instalacja i uruchomienie
 npm install
 npm run dev
 
-# 🎉 Open http://localhost:5173
+# 🎉 Otwórz http://localhost:5173
 ```
 
-### Option 3: One-Click Start (Windows)
+### Opcja 3: Start Jednym Kliknięciem (Windows)
 ```powershell
-# Use convenience script
+# Użyj skryptu uruchamiającego
 .\start-simulator.ps1
 ```
 
-📚 **Full setup guide:** `production-simulator/docs/INSTRUKCJA_URUCHOMIENIA.md`
+📚 **Pełny przewodnik instalacji:** `production-simulator/docs/INSTRUKCJA_URUCHOMIENIA.md`
 
 ---
 
@@ -244,7 +244,7 @@ npm run dev
 hackaton/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml            # GitHub Actions - auto deployment
+│       └── deploy.yml            # GitHub Actions - automatyczne wdrożenie
 │
 ├── production-simulator/          # ← GŁÓWNA APLIKACJA
 │   ├── src/
@@ -277,7 +277,7 @@ hackaton/
 
 ---
 
-## 🎮 Demo Features
+## 🎮 Funkcje Demo
 
 ### 4 Maszyny Produkcyjne
 - **CNC-01, CNC-02** - Frezarki wysokiej precyzji (szybkie)
@@ -286,17 +286,17 @@ hackaton/
 
 ### 12 Typów Zleceń
 Realistyczne produkty ELPLC:
-- 🔴 **Wariator - Obróbka** (Critical, 25 min) - automotive deadline!
-- 🟡 **Bateria E-Bike - Montaż** (Rush, 40 min)
-- 🟢 **Amortyzator - Spawanie** (Normal, 35 min)
+- 🔴 **Wariator - Obróbka** (Krytyczne, 25 min) - termin automotive!
+- 🟡 **Bateria E-Bike - Montaż** (Pilne, 40 min)
+- 🟢 **Amortyzator - Spawanie** (Normalne, 35 min)
 - + 9 innych typów (testy EOL, kalibracja, pakowanie...)
 
 ### Algorytm Przydziału
-**Heurystyka minimalizacji makespan:**
+**Heurystyka minimalizacji czasu wykonania:**
 - Preferowane maszyny dla każdego typu zadania
 - Obliczanie ETA dla wszystkich kandydatów
 - Wybór maszyny z najmniejszym obciążeniem
-- Uwzględnienie priorytetów (Critical > Rush > Normal)
+- Uwzględnienie priorytetów (Krytyczne > Pilne > Normalne)
 
 **To NIE jest losowość** - to model myślenia planera produkcji.
 
@@ -304,7 +304,7 @@ Realistyczne produkty ELPLC:
 
 ## 💰 Realistyczne Parametry
 
-### Validowane z lead produkcji ELPLC
+### Zwalidowane z liderem produkcji ELPLC
 
 ```
 Produkt: Wariatory do samochodów
@@ -384,34 +384,34 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 
 ---
 
-## 🤖 Tech Stack
+## 🤖 Stos Technologiczny
 
 <div align="center">
 
-|     Layer      |       Technology       | Why?                                  |
-| :------------: | :--------------------: | :------------------------------------ |
-|  **Frontend**  | React 19 + TypeScript  | Type-safe components, latest features |
-|   **Build**    |   Vite 7 (Rolldown)    | ⚡ Lightning-fast HMR & builds         |
-|  **Styling**   |     Tailwind CSS 4     | Utility-first, dark theme optimized   |
-| **Animation**  |     Framer Motion      | Smooth 60fps transitions              |
-|   **State**    |        Zustand         | Lightweight (<1KB), no boilerplate    |
-|   **Charts**   |      Recharts 3.5      | Responsive, composable charts         |
-| **Deployment** | GitHub Pages + Actions | CI/CD automated deployment            |
+|     Warstwa     |      Technologia       | Dlaczego?                                 |
+| :-------------: | :--------------------: | :---------------------------------------- |
+|  **Frontend**   | React 19 + TypeScript  | Bezpieczne typy, najnowsze funkcje        |
+|   **Build**     |   Vite 7 (Rolldown)    | ⚡ Błyskawiczne HMR i budowanie            |
+|  **Stylizacja** |     Tailwind CSS 4     | Utility-first, zoptymalizowane pod ciemny motyw |
+|  **Animacje**   |     Framer Motion      | Płynne przejścia w 60fps                  |
+|    **Stan**     |        Zustand         | Lekki (<1KB), bez boilerplate             |
+|   **Wykresy**   |      Recharts 3.5      | Responsywne, komponowalne wykresy         |
+| **Wdrożenie**   | GitHub Pages + Actions | Automatyczne wdrożenie CI/CD              |
 
 </div>
 
-### 🎯 Key Features
+### 🎯 Kluczowe Funkcje
 
-✨ **Production-Ready**
-- ⚡ Sub-second load times (711KB total bundle)
-- 📱 Responsive design (desktop-first, mobile coming)
-- 🎨 Brutalist MES-inspired UI
-- ♿ Accessible color contrasts
+✨ **Gotowe do Produkcji**
+- ⚡ Czas ładowania poniżej sekundy (711KB całkowity bundle)
+- 📱 Responsywny design (desktop-first, mobile w drodze)
+- 🎨 UI inspirowane brutalizmem MES
+- ♿ Dostępne kontrasty kolorów
 
-🔧 **Developer Experience**
-- 🎯 100% TypeScript coverage
-- 📦 Auto-deployment on push
-- 🧪 ESLint configured
+🔧 **Doświadczenie Programisty**
+- 🎯 100% pokrycie TypeScript
+- 📦 Automatyczne wdrożenie przy push
+- 🧪 Skonfigurowany ESLint
 - 🔄 Hot Module Replacement
 
 **Dlaczego ten stack?**
@@ -427,7 +427,7 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 ### Kluczowe punkty:
 
 1. **Nie losowa symulacja** - model myślenia planera produkcji
-2. **Dane z ELPLC** - validowane z lead produkcji (Kamil Małochleb)
+2. **Dane z ELPLC** - zwalidowane z liderem produkcji (Kamil Małochleb)
 3. **$72k/h koszt przestoju** - realne liczby (wariatory automotive)
 4. **UI jak MES** - planer zrozumie w 5 sekund
 5. **Komplementarność z TOMAI** - FailSafe reaguje, TOMAI monitoruje
@@ -453,7 +453,7 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 
 ## 🔧 Troubleshooting
 
-### Aplikacja nie startuje?
+### Aplikacja nie uruchamia się?
 ```powershell
 cd production-simulator
 Remove-Item -Recurse -Force node_modules
@@ -462,105 +462,105 @@ npm install
 npm run dev
 ```
 
-### Port zajęty?
+### Port jest zajęty?
 ```powershell
 Stop-Process -Name node -Force
 ```
 
 ---
 
-## 🎥 Demo & Recordings
+## 🎥 Demo i Nagrania
 
-📹 **Video demos available in:** `production-simulator/recordings/`
+📹 **Nagrania wideo dostępne w:** `production-simulator/recordings/`
 
-Watch the simulator in action:
-- Real-time task assignment
-- Machine breakdown scenarios
-- Analytics dashboard walkthrough
-- Auto-rebalancing demonstrations
-
----
-
-## 🚀 Roadmap
-
-### 🎯 Phase 1: MVP ✅ COMPLETE
-- [x] Production simulator with 4 machines
-- [x] Smart task scheduling algorithm
-- [x] Analytics dashboard
-- [x] GitHub Pages deployment
-- [x] Desktop web application
-
-### 📱 Phase 2: Mobile First (Q1 2026)
-- [ ] **Native Android app** (Kotlin + Jetpack Compose)
-- [ ] **Native iOS app** (Swift + SwiftUI)
-- [ ] Push notifications for critical alerts
-- [ ] Offline mode with sync
-- [ ] Biometric authentication
-
-### 🔌 Phase 3: Enterprise Integration
-- [ ] WebSocket integration with TOMAI (ELPLC MES)
-- [ ] REST API for external systems
-- [ ] Historical data import/export
-- [ ] Multi-factory support
-- [ ] Role-based access control (RBAC)
-
-### 🤖 Phase 4: AI & Predictive
-- [ ] Machine learning for breakdown prediction
-- [ ] Predictive maintenance scheduling
-- [ ] Optimal batch size recommendations
-- [ ] Dynamic priority adjustment
-- [ ] What-if scenario simulation
+Zobacz symulator w akcji:
+- Przydzielanie zadań w czasie rzeczywistym
+- Scenariusze awarii maszyn
+- Przewodnik po dashboardzie analitycznym
+- Demonstracje automatycznego równoważenia
 
 ---
 
-## 🏆 Why ForgeGrid Wins
+## 🚀 Mapa Drogowa
+
+### 🎯 Faza 1: MVP ✅ UKOŃCZONE
+- [x] Symulator produkcji z 4 maszynami
+- [x] Inteligentny algorytm harmonogramowania zadań
+- [x] Dashboard analityczny
+- [x] Wdrożenie na GitHub Pages
+- [x] Aplikacja webowa desktop
+
+### 📱 Faza 2: Mobile First (Q1 2026)
+- [ ] **Natywna aplikacja Android** (Kotlin + Jetpack Compose)
+- [ ] **Natywna aplikacja iOS** (Swift + SwiftUI)
+- [ ] Powiadomienia push dla krytycznych alertów
+- [ ] Tryb offline z synchronizacją
+- [ ] Uwierzytelnianie biometryczne
+
+### 🔌 Faza 3: Integracja Przedsiębiorstwa
+- [ ] Integracja WebSocket z TOMAI (ELPLC MES)
+- [ ] REST API dla systemów zewnętrznych
+- [ ] Import/eksport danych historycznych
+- [ ] Obsługa wielu fabryk
+- [ ] Kontrola dostępu oparta na rolach (RBAC)
+
+### 🤖 Faza 4: AI i Predykcja
+- [ ] Uczenie maszynowe do przewidywania awarii
+- [ ] Harmonogramowanie konserwacji predykcyjnej
+- [ ] Rekomendacje optymalnej wielkości partii
+- [ ] Dynamiczne dostosowywanie priorytetów
+- [ ] Symulacja scenariuszy "co by było gdyby"
+
+---
+
+## 🏆 Dlaczego ForgeGrid Wygrywa
 
 <div align="center">
 
-### **The Only Solution That Delivers**
+### **Jedyne Rozwiązanie, Które Dostarcza Rezultaty**
 
-|         Competitors         |            ForgeGrid             |
-| :-------------------------: | :------------------------------: |
-| 🐌 30-minute manual response |     ⚡ **2-minute automated**     |
-|    📝 Excel spreadsheets     |    📊 **Real-time dashboards**    |
-| 🤷 Reactive problem solving  | 🤖 **Proactive AI orchestration** |
-|     💸 $72K/hour losses      |      💰 **$4M/year savings**      |
-|       🖥️ Desktop only        |    📱 **Mobile-first roadmap**    |
+|         Konkurencja          |            ForgeGrid             |
+| :--------------------------: | :------------------------------: |
+| 🐌 30-minutowa reakcja manualna |     ⚡ **2-minutowa automatyczna**     |
+|    📝 Arkusze Excel          |    📊 **Dashboardy w czasie rzeczywistym**    |
+| 🤷 Reaktywne rozwiązywanie problemów | 🤖 **Proaktywna orkiestracja AI** |
+|     💸 $72K/godz strat       |      💰 **$4M/rok oszczędności**      |
+|       🖥️ Tylko desktop       |    📱 **Mapa drogowa mobile-first**    |
 
 </div>
 
 ---
 
-## 📞 Contact & Team
+## 📞 Kontakt i Zespół
 
 **Projekt FailSafe**  
 Hackathon dla Małopolski 2025
 
-🌐 **Live Demo:** [netbr3ak.github.io/internal-machine-monitor](https://netbr3ak.github.io/internal-machine-monitor/)  
-📂 **Repository:** [github.com/NetBr3ak/internal-machine-monitor](https://github.com/NetBr3ak/internal-machine-monitor)  
-📧 **Contact:** [Your Contact Info]
+🌐 **Demo Na Żywo:** [netbr3ak.github.io/internal-machine-monitor](https://netbr3ak.github.io/internal-machine-monitor/)  
+📂 **Repozytorium:** [github.com/NetBr3ak/internal-machine-monitor](https://github.com/NetBr3ak/internal-machine-monitor)  
+📧 **Kontakt:** [Twoje Dane Kontaktowe]
 
 ---
 
 <div align="center">
 
-### **Ready to Transform Your Production Floor?**
+### **Gotowy na Transformację Swojej Hali Produkcyjnej?**
 
-[![🚀 Try Live Demo](https://img.shields.io/badge/🚀_TRY_LIVE_DEMO-00D9FF?style=for-the-badge&logoColor=white)](https://netbr3ak.github.io/internal-machine-monitor/)
-[![⭐ Star on GitHub](https://img.shields.io/badge/⭐_STAR_ON_GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NetBr3ak/internal-machine-monitor)
+[![🚀 Wypróbuj Demo Na Żywo](https://img.shields.io/badge/🚀_WYPRÓBUJ_DEMO-00D9FF?style=for-the-badge&logoColor=white)](https://netbr3ak.github.io/internal-machine-monitor/)
+[![⭐ Gwiazdka na GitHub](https://img.shields.io/badge/⭐_GWIAZDKA_NA_GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NetBr3ak/internal-machine-monitor)
 
-**Made with ❤️ for ELPLC Manufacturing Excellence**
+**Stworzone z ❤️ dla Doskonałości Produkcyjnej ELPLC**
 
 </div>
-- [ ] Gantt chart timeline
-- [ ] Multi-day planning
-- [ ] Setup times między zadaniami
-- [ ] Operator assignment
+- [ ] Oś czasu wykresu Gantta
+- [ ] Planowanie wielodniowe
+- [ ] Czasy przygotowawcze między zadaniami
+- [ ] Przypisywanie operatorów
 
-### Phase 4 - AI/ML
+### Faza 4 - AI/ML
 - [ ] Predykcja awarii (LSTM)
-- [ ] Reinforcement Learning scheduler
-- [ ] Anomaly detection
+- [ ] Scheduler z Reinforcement Learning
+- [ ] Wykrywanie anomalii
 
 ---
 
