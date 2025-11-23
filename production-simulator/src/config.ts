@@ -212,16 +212,16 @@ export const TASK_TYPES: TaskType[] = [
 export const SIMULATION_CONFIG = {
 	SPEED: 2, // simulation minutes per real second
 	TICK_INTERVAL: 300, // ms between simulation ticks
-	INITIAL_TASKS_MIN: 15,
-	INITIAL_TASKS_MAX: 25,
+	INITIAL_TASKS_MIN: 17,
+	INITIAL_TASKS_MAX: 28,
 
 	// Realistic batch arrival system (Poisson-like distribution)
 	// Increased frequency (3x faster) as requested
 	BATCH_ARRIVAL_INTERVAL_MIN: 2500, // ms (was 8000)
 	BATCH_ARRIVAL_INTERVAL_MAX: 6500, // ms (was 20000)
 	BATCH_SIZE_MIN: 1,
-	BATCH_SIZE_MAX: 3, // Slightly reduced max batch size to favor more frequent smaller updates
-	BATCH_SIZE_WEIGHTS: [0.50, 0.30, 0.15, 0.05], // Higher chance of single tasks
+	BATCH_SIZE_MAX: 4, // Increased by 10% for more throughput
+	BATCH_SIZE_WEIGHTS: [0.40, 0.30, 0.20, 0.10], // Adjusted for 4-item batches
 
 	// Machine time multiplier variance
 	FAST_MACHINE_MULT_MIN: 0.25,

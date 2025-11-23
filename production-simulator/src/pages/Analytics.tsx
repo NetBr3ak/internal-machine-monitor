@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSimulationStore } from '../store';
+import { GlobalMetricsPanel } from '../components/GlobalMetricsPanel';
 import type { SystemEvent } from '../types';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
@@ -9,7 +10,7 @@ interface AnalyticsProps {
 }
 
 export function Analytics({ onBack }: AnalyticsProps) {
-	const { eventLog, analyticsHistory, simulationTime, machines, getGlobalMetrics } = useSimulationStore();
+	const { eventLog, analyticsHistory, simulationTime, machines, getGlobalMetrics, isRunning } = useSimulationStore();
 	const [selectedTimeRange, setSelectedTimeRange] = useState<'5m' | '15m' | '30m' | '1h'>('15m');
 
 	const metrics = getGlobalMetrics();
@@ -53,50 +54,35 @@ export function Analytics({ onBack }: AnalyticsProps) {
 	};
 
 	return (
-		<div className="flex flex-col h-screen bg-slate-950 text-slate-200 overflow-hidden relative">
-			{/* Background */}
+		<div className="flex flex-col h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans selection:bg-cyan-500/30 relative">
+			{/* Global Cyberpunk Background */}
 			<div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0)_0%,rgba(2,6,23,0.8)_100%)] pointer-events-none" />
 
-			{/* Header */}
-			<header className="flex-none p-5 border-b border-slate-800 bg-slate-950/80 backdrop-blur-sm z-10">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						{onBack && (
-							<button
-								onClick={onBack}
-								className="px-4 py-2 bg-slate-900 text-slate-400 border border-slate-800 text-xs font-bold uppercase tracking-widest hover:text-slate-200 hover:border-slate-700 transition-all"
-							>
-								← Back
-							</button>
-						)}
-						<div>
-							<h1 className="text-2xl font-black text-slate-100 uppercase tracking-tight flex items-center gap-3">
-								<span className="text-cyan-500">📊</span> ForgeGrid Analytics
-							</h1>
-							<p className="text-xs text-slate-500 mt-1 font-mono uppercase tracking-widest">Real-time Production Intelligence & Reporting</p>
-						</div>
-					</div>
-					<div className="flex items-center gap-3">
-						<div className="px-4 py-2 bg-slate-900 border border-slate-800">
-							<div className="text-[9px] text-slate-500 uppercase tracking-widest mb-1 font-mono">System Time</div>
-							<div className="text-lg font-mono font-bold text-cyan-400">{Math.floor(simulationTime)}m</div>
-						</div>
-						<div className="px-4 py-2 bg-slate-900 border border-slate-800">
-							<div className="text-[9px] text-slate-500 uppercase tracking-widest mb-1 font-mono">Hall Load</div>
-							<div className={`text-lg font-mono font-bold ${metrics.hallLoad > 80 ? 'text-red-400' :
-								metrics.hallLoad > 60 ? 'text-amber-400' :
-									'text-emerald-400'
-								}`}>
-								{metrics.hallLoad}%
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
+			{/* View Toggle */}
+			<div className="absolute top-4 right-4 z-20 flex gap-2">
+				<button
+					onClick={onBack}
+					className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm"
+				>
+					🏭 Production
+				</button>
+				<button
+					className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+				>
+					📊 Analytics
+				</button>
+			</div>
 
-			{/* Main Content */}
-			<main className="flex-1 overflow-y-auto p-6 space-y-6 z-10">
+			{/* Top Bar - Global Metrics */}
+			<header className="flex-none p-4 pb-2 z-10">
+				<GlobalMetricsPanel
+					metrics={metrics}
+					simulationTime={simulationTime}
+					isRunning={isRunning}
+				/>
+			</header>			{/* Main Content */}
+			<main className="flex-1 overflow-y-auto p-4 space-y-4 z-10">
 				{/* KPIs Row */}
 				<section className="grid grid-cols-5 gap-4">
 					<KPICard title="Throughput" value={`${metrics.throughput} /hr`} icon="⚡" color="cyan" />
@@ -262,12 +248,12 @@ function KPICard({ title, value, icon, color }: { title: string; value: string |
 	};
 
 	return (
-		<div className={`p-4 border bg-slate-900/40 backdrop-blur-sm transition-all hover:bg-slate-900/60 ${colors[color as keyof typeof colors]}`}>
+		<div className={`p-4 border bg-slate-900/60 backdrop-blur-sm transition-all hover:bg-slate-900/80 ${colors[color as keyof typeof colors]}`}>
 			<div className="flex items-center justify-between mb-2">
 				<span className="text-2xl">{icon}</span>
 				<span className="text-2xl font-black font-mono">{value}</span>
 			</div>
-			<div className="text-[9px] uppercase tracking-widest font-bold opacity-70 font-mono">{title}</div>
+			<div className="text-[9px] uppercase tracking-widest font-bold font-mono">{title}</div>
 		</div>
 	);
 }

@@ -91,19 +91,13 @@ function App() {
         <div className="absolute top-4 right-4 z-20 flex gap-2">
           <button
             onClick={() => setActiveView('production')}
-            className={`px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all ${activeView === 'production'
-                ? 'bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
-                : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm'
-              }`}
+            className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
           >
             🏭 Production
           </button>
           <button
             onClick={() => setActiveView('analytics')}
-            className={`px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all ${activeView === 'analytics'
-                ? 'bg-cyan-500 text-white border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
-                : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm'
-              }`}
+            className="px-4 py-2 border text-xs font-bold uppercase tracking-widest transition-all bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700 backdrop-blur-sm"
           >
             📊 Analytics
           </button>
