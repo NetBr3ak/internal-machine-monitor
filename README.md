@@ -1,11 +1,11 @@
-# 🏭 ForgeGrid - Real-Time Production Intelligence
+# 🏭 ForgeGrid - Inteligencja Produkcyjna w Czasie Rzeczywistym
 
 <div align="center">
 
-### **AI-Powered Manufacturing Orchestration System**
+### **System Orkiestracji Produkcji Wspomagany AI**
 **Projekt FailSafe • Hackathon dla Małopolski 2025**
 
-[![🚀 Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Desktop_Ready-00D9FF?style=for-the-badge&labelColor=0A1628)](https://netbr3ak.github.io/internal-machine-monitor/)
+[![🚀 Demo Na Żywo](https://img.shields.io/badge/🚀_Demo_Na_Żywo-Desktop_Ready-00D9FF?style=for-the-badge&labelColor=0A1628)](https://netbr3ak.github.io/internal-machine-monitor/)
 [![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)]()
 [![Tailwind](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
@@ -327,59 +327,59 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 
 ### Dwa Widoki:
 
-#### 🏭 Production View (Główny Dashboard)
+#### 🏭 Widok Produkcji (Główny Dashboard)
 
 **1. Górny pasek** - Globalne wskaźniki:
-- **Hall Load** - aktualne obciążenie hali (0-100%)
+- **Obciążenie Hali** - aktualne obciążenie hali (0-100%)
 - **ETA** - szacowany czas zakończenia wszystkich zadań
-- **Completed** - liczba ukończonych zadań
-- **In Progress** - zadania w realizacji
-- **Waiting** - zadania czekające na przydział
-- **Throughput** - zadania/godzinę (wyliczane dynamicznie)
+- **Ukończone** - liczba ukończonych zadań
+- **W Trakcie** - zadania w realizacji
+- **Oczekujące** - zadania czekające na przydział
+- **Przepustowość** - zadania/godzinę (wyliczane dynamicznie)
 
-**2. Lewy panel** - Task Pool (Pula Zleceń):
+**2. Lewy panel** - Pula Zadań:
 - Wszystkie zadania czekające na przydział
-- Kolory według priorytetu: Critical (🔴) / Rush (🟡) / Normal (🟢)
+- Kolory według priorytetu: Krytyczne (🔴) / Pilne (🟡) / Normalne (🟢)
 - Dla każdego zadania: nazwa, czas trwania, preferowane maszyny
 - Automatyczne znikanie po przydzieleniu do maszyny
 
 **3. Cztery kolumny** - Maszyny:
-- **Nagłówek**: nazwa maszyny, typ, prędkość (0.8x fast / 1.0x normal / 1.2x slow)
-- **Current Task**: aktualne zadanie z paskiem postępu (0-100%)
-- **Queue**: kolejka zadań (do 5 widocznych, reszta collapsed)
-- **Breakdown Button** (⚠️): symulacja awarii z redistrybucją zadań
-- **Metryki**: ETA kolejki, Utilization (%), Completed tasks
+- **Nagłówek**: nazwa maszyny, typ, prędkość (0.8x szybka / 1.0x normalna / 1.2x wolna)
+- **Aktualne Zadanie**: aktualne zadanie z paskiem postępu (0-100%)
+- **Kolejka**: kolejka zadań (do 5 widocznych, reszta zwinięta)
+- **Przycisk Awarii** (⚠️): symulacja awarii z redistrybucją zadań
+- **Metryki**: ETA kolejki, Wykorzystanie (%), Ukończone zadania
 
-#### 📈 Analytics View (Moduł Raportowania)
+#### 📈 Widok Analityki (Moduł Raportowania)
 
-**1. KPI Cards** (5 wskaźników):
-- **Throughput** - zadania/hr
-- **Completed** - suma ukończonych
-- **In Progress** - aktywne zadania
-- **Waiting** - w kolejce
-- **Events Logged** - suma zdarzeń
+**1. Karty KPI** (5 wskaźników):
+- **Przepustowość** - zadania/godz
+- **Ukończone** - suma ukończonych
+- **W Trakcie** - aktywne zadania
+- **Oczekujące** - w kolejce
+- **Zalogowane Zdarzenia** - suma zdarzeń
 
-**2. Wykresy** (3 interaktywne, time range: 5m/15m/30m/1h):
-- **Hall Load Trend** (Area Chart) - obciążenie hali w czasie
-- **Task Throughput** (Multi-Line) - completed/active/waiting tasks
-- **Machine Utilization** (Bar Chart) - wykorzystanie każdej maszyny (%)
+**2. Wykresy** (3 interaktywne, zakres czasu: 5m/15m/30m/1h):
+- **Trend Obciążenia Hali** (Wykres Obszarowy) - obciążenie hali w czasie
+- **Przepustowość Zadań** (Wykres Wieloliniowy) - ukończone/aktywne/oczekujące zadania
+- **Wykorzystanie Maszyn** (Wykres Słupkowy) - wykorzystanie każdej maszyny (%)
 
-**3. Event Distribution** (Alert Panel):
+**3. Rozkład Zdarzeń** (Panel Alertów):
 - Liczba zdarzeń wg typu:
-  - task_created, task_completed, task_started
-  - machine_breakdown, machine_repaired
-  - alert_sent, rebalance_triggered
+  - zadanie_utworzone, zadanie_ukończone, zadanie_rozpoczęte
+  - awaria_maszyny, maszyna_naprawiona
+  - alert_wysłany, przerównoważenie_uruchomione
 
-**4. Notification Recipients** (Routing Alertów):
-- **Technicians** (🔧) - ile alertów otrzymało
-- **Supervisors** (👔) - ile notyfikacji
-- **Managers** (💼) - raportowanie
-- **Quality Control** (🔬) - alerty jakościowe
+**4. Odbiorcy Powiadomień** (Routing Alertów):
+- **Technicy** (🔧) - ile alertów otrzymało
+- **Kierownicy** (👔) - ile notyfikacji
+- **Menedżerowie** (💼) - raportowanie
+- **Kontrola Jakości** (🔬) - alerty jakościowe
 
-**5. System Event Log** (Tabela):
-- 50 ostatnich zdarzeń (reversed chronological)
-- Kolumny: Timestamp, Sim Time, Type, Severity, Message, Context
-- Severity levels: Info / Warning / Critical
+**5. Log Zdarzeń Systemu** (Tabela):
+- 50 ostatnich zdarzeń (odwrócona chronologia)
+- Kolumny: Znacznik czasu, Czas Sym, Typ, Istotność, Wiadomość, Kontekst
+- Poziomy istotności: Info / Ostrzeżenie / Krytyczne
 - **Eksport CSV** - pełna historia zdarzeń do pliku
 
 ---
