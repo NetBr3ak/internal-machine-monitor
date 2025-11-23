@@ -3,7 +3,7 @@
 <div align="center">
 
 ### **AI-Powered Manufacturing Orchestration System**
-**Projekt FailSafe • Hackathon dla Małopolski 2025**
+**Projekt ForgeGrid • Hackathon dla Małopolski 2025**
 
 [![🚀 Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Desktop_Ready-00D9FF?style=for-the-badge&labelColor=0A1628)](https://netbr3ak.github.io/internal-machine-monitor/)
 [![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
@@ -48,7 +48,7 @@ Real-time notifications on-the-go
 
 ### **From $72,000/hour losses to ZERO downtime**
 
-|         Before FailSafe         |          With ForgeGrid          |         Impact         |
+|         Before ForgeGrid        |          With ForgeGrid          |         Impact         |
 | :-----------------------------: | :------------------------------: | :--------------------: |
 |  🔴 **30 min** avg repair time   | 🟢 **2 min** detection + response |    ⚡ **93% faster**    |
 | 💸 **$36,000** loss per incident |   💰 **$2,400** minimal impact    |  💵 **$33,600 saved**   |
@@ -80,7 +80,7 @@ Real-time notifications on-the-go
 ### Kluczowe Liczby (Validowane z ELPLC):
 - **$72,000/h** - koszt przestoju linii wariatorów
 - **600 szt/h** - produkcja wariatorów (6 sek/cykl, $120/szt)
-- **93% redukcja strat** - FailSafe (2 min) vs tradycyjna naprawa (30 min)
+- **93% redukcja strat** - ForgeGrid (2 min) vs tradycyjna naprawa (30 min)
 - **$4M rocznie** - potencjalne oszczędności przy 10 awariach/miesiąc
 
 ---
@@ -147,63 +147,29 @@ Real-time notifications on-the-go
 
 ## 🎨 Interface Highlights
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
 ### 🏭 Production Command Center
-**Real-time operations dashboard for shop floor team**
+**Real-time operations dashboard for shop floor**
 
-**Top Bar - Global Metrics**
-- 🏭 ForgeGrid.OS branding
-- ⏱️ System Time (simulation clock)
-- 📊 Hall Load percentage
-- 🟢 Online/Standby status
-- ⚡ Throughput & ETA metrics
-
-**Left Panel - Task Pool**
-- 📋 All waiting tasks
-- 🔴🟡🟢 Priority indicators
-- 📝 Task details (name, duration)
-- 🎯 Preferred machines
-- ⚡ Auto-assign on machine availability
-
-**Machine Columns (×4)**
-- 🏷️ Machine ID & type
-- ⚙️ Current task with progress bar
-- 📊 Queue visualization (up to 5 visible)
-- 💾 Utilization percentage
-- ⚠️ Breakdown simulation button
-- ✅ Completed task counter
-
-</td>
-<td width="50%" valign="top">
+```
+┌──────────────────────────────────────────────────────────────────┐
+│ ForgeGrid.OS │ System: 127m │ Load: 67% │ Status: 🟢 ONLINE    │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  Task Pool: 8 waiting      [CNC-01]  [CNC-02]  [ASM-A]  [TST-B] │
+│  🔴 Wariator-CNC (25m)      ⚙️ 78%    ⚙️ 82%    ⚙️ 45%   ⚙️ 91% │
+│  🟡 E-Bike Battery (40m)   Q: 3      Q: 2      Q: 1     Q: 4    │
+│  🟢 Damper-Weld (35m)      67m      58m       21m      89m      │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
 
 ### 📊 Analytics Intelligence Dashboard
-**Executive insights & business intelligence for management**
+**Executive insights & business intelligence**
 
-**KPI Cards (×5)**
-- ⚡ **Throughput** - tasks per hour
-- ✅ **Completed** - total finished
-- ⚙️ **In Progress** - currently active
-- 📋 **Waiting** - queued tasks
-- 📝 **Events** - logged incidents
-
-**Interactive Charts (×3)**
-- 📈 **Hall Load Trend** - Area chart showing capacity utilization over time
-- ⚡ **Task Throughput** - Multi-line chart tracking completed/active/waiting
-- 📊 **Machine Utilization** - Bar chart comparing machine efficiency
-
-**Analytics Features**
-- 🕐 Time range selector (5m / 15m / 30m / 1h)
-- 🚨 Event distribution breakdown by type
-- 👥 Alert recipient tracking (Techs/Supervisors/Managers/QC)
-- 📥 CSV export for full event history
-- 📅 Timestamped event log (last 50 events)
-
-</td>
-</tr>
-</table>
+- **5 KPI Cards:** Throughput • Completed • In Progress • Waiting • Events
+- **3 Interactive Charts:** Time-series with 5m/15m/30m/1h ranges
+- **Event Distribution:** System activity breakdown by event type
+- **Alert Recipients:** Notification routing analysis (Techs/Supervisors/Managers/QC)
 
 ---
 
@@ -314,8 +280,8 @@ Produkt: Wariatory do samochodów
 └─ KOSZT PRZESTOJU: $72,000/GODZINĘ! ⚠️
 
 Przykład awarii (30 min):
-├─ Bez FailSafe: $36,000 strat
-├─ Z FailSafe (2 min): $2,400 strat
+├─ Bez ForgeGrid: $36,000 strat
+├─ Z ForgeGrid (2 min): $2,400 strat
 └─ Oszczędność: $33,600 (93%)
 
 ROI roczny: $4M przy 10 awariach/miesiąc
@@ -430,7 +396,7 @@ ROI roczny: $4M przy 10 awariach/miesiąc
 2. **Dane z ELPLC** - validowane z lead produkcji (Kamil Małochleb)
 3. **$72k/h koszt przestoju** - realne liczby (wariatory automotive)
 4. **UI jak MES** - planer zrozumie w 5 sekund
-5. **Komplementarność z TOMAI** - FailSafe reaguje, TOMAI monitoruje
+5. **Komplementarność z TOMAI** - ForgeGrid reaguje, TOMAI monitoruje
 
 ### Scenariusz demo (3 min):
 
@@ -533,7 +499,7 @@ Watch the simulator in action:
 
 ## 📞 Contact & Team
 
-**Projekt FailSafe**  
+**Projekt ForgeGrid**  
 Hackathon dla Małopolski 2025
 
 🌐 **Live Demo:** [netbr3ak.github.io/internal-machine-monitor](https://netbr3ak.github.io/internal-machine-monitor/)  
@@ -564,10 +530,10 @@ Hackathon dla Małopolski 2025
 
 ---
 
-## 👥 Team FailSafe
+## 👥 Team ForgeGrid
 
 **Hackathon dla Małopolski 2025**  
-Projekt: **FailSafe** - System reagujący na awarie  
+Projekt: **ForgeGrid** - System reagujący na awarie  
 Klient: **ELPLC S.A.** (Tarnów)
 
 ---
@@ -575,14 +541,14 @@ Klient: **ELPLC S.A.** (Tarnów)
 ## 📞 Kontakt
 
 Pytania? Sugestie? Feedback?  
-Skontaktuj się z zespołem FailSafe!
+Skontaktuj się z zespołem ForgeGrid!
 
 ---
 
 <div align="center">
-  <h2>🏭 FailSafe Production Simulator</h2>
+  <h2>🏭 ForgeGrid Production Simulator</h2>
   <p><b>"Zero paniki. 3 sekundy. Nowy plan."</b></p>
-  <p><i>Built with ❤️ for ELPLC by Team FailSafe</i></p>
+  <p><i>Built with ❤️ for ELPLC by Team ForgeGrid</i></p>
   <br>
   <p>✅ Demo gotowe do prezentacji!</p>
   <p>🚀 <code>cd production-simulator && npm install && npm run dev</code></p>
