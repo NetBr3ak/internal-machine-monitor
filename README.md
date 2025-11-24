@@ -10,9 +10,14 @@
 
 [![Live Demo](https://img.shields.io/badge/🚀_LIVE_DEMO-00D4FF?style=for-the-badge&logoColor=white)](https://netbr3ak.github.io/internal-machine-monitor/)
 &nbsp;&nbsp;
+[![GitHub Release](https://img.shields.io/github/v/release/NetBr3ak/internal-machine-monitor?style=for-the-badge&color=00FF88)](https://github.com/NetBr3ak/internal-machine-monitor/releases)
+&nbsp;&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 [![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
 [![Tailwind](https://img.shields.io/badge/Tailwind_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)]()
+[![Zustand](https://img.shields.io/badge/Zustand_5-FF6B6B?style=for-the-badge&logo=react&logoColor=white)]()
 
 <br/>
 
@@ -21,7 +26,7 @@
 
 <br/>
 
-**🏆 Projekt FailSafe • Hackathon dla Małopolski 2025**
+**🔥 FORGE LAB • Hackathon dla Małopolski 2025**
 
 ---
 

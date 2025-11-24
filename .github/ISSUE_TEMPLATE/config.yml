@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/NetBr3ak/internal-machine-monitor/discussions
+    about: Ask questions and discuss ideas
+  - name: 📖 Documentation
+    url: https://github.com/NetBr3ak/internal-machine-monitor#readme
+    about: Check out our documentation
