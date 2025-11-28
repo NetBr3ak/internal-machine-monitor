@@ -5,7 +5,7 @@ Thank you for your interest in contributing to ForgeGrid! 🔧
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/internal-machine-monitor.git`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/forge-grid.git`
 3. Install dependencies: `cd production-simulator && npm install`
 4. Start development server: `npm run dev`
 

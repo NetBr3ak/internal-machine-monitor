@@ -8,9 +8,9 @@
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/🚀_LIVE_DEMO-00D4FF?style=for-the-badge&logoColor=white)](https://netbr3ak.github.io/internal-machine-monitor/)
+[![Live Demo](https://img.shields.io/badge/🚀_LIVE_DEMO-00D4FF?style=for-the-badge&logoColor=white)](https://netbr3ak.github.io/forge-grid/)
 &nbsp;&nbsp;
-[![GitHub Release](https://img.shields.io/github/v/release/NetBr3ak/internal-machine-monitor?style=for-the-badge&color=00FF88)](https://github.com/NetBr3ak/internal-machine-monitor/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/NetBr3ak/forge-grid?style=for-the-badge&color=00FF88)](https://github.com/NetBr3ak/forge-grid/releases)
 &nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -107,7 +107,7 @@ Theoretical foundations:
 
 <div align="center">
 
-![ForgeFlow Pipeline](https://raw.githubusercontent.com/NetBr3ak/internal-machine-monitor/master/docs/ForgeFlow3.png)
+![ForgeFlow Pipeline](https://raw.githubusercontent.com/NetBr3ak/forge-grid/master/docs/ForgeFlow3.png)
 
 </div>
 
@@ -394,8 +394,8 @@ Premium dark theme inspired by aerospace & industrial control systems:
 
 ```bash
 # Clone & install
-git clone https://github.com/NetBr3ak/internal-machine-monitor.git
-cd internal-machine-monitor/production-simulator
+git clone https://github.com/NetBr3ak/forge-grid.git
+cd forge-grid/production-simulator
 npm install
 
 # Development

@@ -187,7 +187,7 @@ function App() {
             {/* Bottom Bar - Controls */}
             <footer className="flex-none h-16 border-t border-[var(--color-border)] bg-[var(--color-surface)] z-30 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
               <div className="hidden md:block text-xs text-[var(--color-text-muted)] font-mono truncate tracking-wider">
-                INTERNAL MACHINE MONITOR // RESTRICTED ACCESS
+                FORGE GRID // PRODUCTION INTELLIGENCE SYSTEM
               </div>
               <SystemControls
                 isRunning={isRunning}
