@@ -1,4 +1,4 @@
-# Internal Machine Monitor (ForgeGrid) - AI Coding Instructions
+# ForgeGrid - AI Coding Instructions
 
 ## Project Overview
 
